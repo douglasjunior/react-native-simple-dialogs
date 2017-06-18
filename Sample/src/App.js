@@ -15,10 +15,7 @@ import {
 
 export default class App extends Component {
 
-    state = {
-        showDialog: false,
-        showProgress: false
-    }
+    state = {}
 
     openDialog(show) {
         this.setState({ showDialog: show })

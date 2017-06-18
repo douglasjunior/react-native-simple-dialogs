@@ -30,7 +30,6 @@ import {
     Text
 } from 'react-native'
 
-
 class Dialog extends Component {
 
     renderTitle() {
@@ -45,8 +44,8 @@ class Dialog extends Component {
 
     render() {
         const {
-            children, dialogStyle, visible, animationType, onRequestClose, onShow, onOrientationChange, onTouchOutside,
-            overlayStyle
+            children, dialogStyle, visible, animationType, onRequestClose, onShow,
+            onOrientationChange, onTouchOutside, overlayStyle
         } = this.props;
 
         return (
@@ -66,7 +65,7 @@ class Dialog extends Component {
                         alignItems: 'center',
                         backgroundColor: "#000000AA",
                         padding: 20
-                    }, overlayStyle]} >
+                    }, overlayStyle]}>
 
                         <View style={[{
                             backgroundColor: 'white',
@@ -99,5 +98,9 @@ Dialog.propTypes = {
     title: PropTypes.string,
     titleStyle: Text.propTypes.style
 }
+
+Dialog.defaultProps = {
+    visible: false
+};
 
 export default Dialog

@@ -43,6 +43,8 @@ import { ProgressDialog } from 'react-native-simple-dialogs';
 />
 ```
 
+More info on the [sample project](https://github.com/douglasjunior/react-native-simple-dialogs/blob/master/Sample/src/App.js).
+
 ## Install 
 
 ```bash
