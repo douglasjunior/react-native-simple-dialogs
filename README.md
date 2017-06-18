@@ -8,7 +8,11 @@ Corssplatform simple dialogs for React Native based on the Modal component. ⚛
 
 ## Demo
 
-Soon...
+### Android
+<img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/android-dialog.png' width='250' /> <img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/android-progress.png' width='250' />
+
+### iOS
+<img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/ios-dialog.png' width='250' /> <img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/ios-progress.png' width='250' />
 
 ## Requirements
 
