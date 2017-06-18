@@ -4,7 +4,7 @@
 [![npm version](https://img.shields.io/npm/v/react-native-simple-dialogs.svg)](https://www.npmjs.com/package/react-native-simple-dialogs)
 [![npm downloads](https://img.shields.io/npm/dt/react-native-simple-dialogs.svg)](#install)
 
-Corssplatform simple dialogs for React Native based on the Modal component. ⚛
+Cross-platform simple dialogs for React Native based on the Modal component. ⚛
 
 ## Demo
 

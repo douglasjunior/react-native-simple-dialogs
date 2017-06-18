@@ -1,7 +1,7 @@
 {
 	"name": "react-native-simple-dialogs",
 	"version": "0.0.1",
-	"description": "Corssplatform simple dialogs for React Native based on the Modal component. ⚛",
+	"description": "Cross-platform simple dialogs for React Native based on the Modal component. ⚛",
 	"private": false,
 	"repository": {
 		"type": "git",
@@ -12,6 +12,7 @@
 		"android",
 		"ios",
 		"dialog",
+		"modal",
 		"popup"
 	],
 	"author": "Douglas Nassif Roma Junior",
