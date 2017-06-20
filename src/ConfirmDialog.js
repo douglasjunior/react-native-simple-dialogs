@@ -28,12 +28,14 @@ class ConfirmDialog extends Component {
             const { title, titleStyle, style, onPress } = button;
 
             const containerStyle = OS === 'ios' ?
-                { flex: 1 } :
+                {
+                    height: 46,
+                    justifyContent: "center"
+                } :
                 {}
 
             const textStyle = OS === 'ios' ?
                 {
-                    height: 46,
                     textAlign: "center",
                     textAlignVertical: "center",
                     color: "#0000FF99",
@@ -49,8 +51,12 @@ class ConfirmDialog extends Component {
                     fontWeight: "bold"
                 }
 
+            const touchableStyle = OS === 'ios' ?
+                { flex: 1 } :
+                {};
+
             return (
-                <TouchableEffect onPress={onPress} style={{ flex: 1 }}>
+                <TouchableEffect onPress={onPress} style={touchableStyle}>
                     <View style={[containerStyle, style]}>
                         <Text
                             style={[textStyle, titleStyle]}
@@ -69,11 +75,11 @@ class ConfirmDialog extends Component {
             { flexDirection: "row", justifyContent: "flex-end", height: 36 }
 
         const dividerVertStyle = OS === 'ios' ?
-            { width: negativeButton ? 1 : 0, backgroundColor: "#00000055" } :
+            { width: negativeButton ? 1 : 0, backgroundColor: "#00000011" } :
             { width: 8 }
 
         const dividerHoriStyle = OS === 'ios' ?
-            { height: 1, backgroundColor: "#00000055" } :
+            { height: 1, backgroundColor: "#00000011" } :
             { height: 0 }
 
         return (

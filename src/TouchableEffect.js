@@ -7,6 +7,8 @@ import {
 } from 'react-native'
 import PropTypes from 'prop-types';
 
+const OS = Platform.OS;
+
 class TouchableEffect extends Component {
 
     render() {
@@ -14,7 +16,7 @@ class TouchableEffect extends Component {
 
         let touchable;
 
-        if (Platform.OS === 'android') {
+        if (OS === 'android') {
             touchable = <TouchableNativeFeedback
                 style={style}
                 onPress={onPress}
@@ -39,11 +41,11 @@ TouchableEffect.propTypes = {
     onPress: TouchableOpacity.propTypes.onPress.isRequired,
     style: View.propTypes.style,
     delayPressIn: TouchableOpacity.propTypes.delayPressIn,
-    background: TouchableNativeFeedback.propTypes.background,
+    background: OS === 'android' ? TouchableNativeFeedback.propTypes.background : PropTypes.any,
 }
 
 TouchableEffect.defaultProps = {
-    background: TouchableNativeFeedback.SelectableBackground()
+    background: OS === 'android' ? TouchableNativeFeedback.SelectableBackground() : null
 };
 
 export default TouchableEffect

@@ -36,6 +36,20 @@ export default class App extends Component {
         );
     }
 
+    optionYes() { 
+        this.openConfirm(false); 
+        // Yes, this is a workaround :(
+        // Why? See this https://github.com/facebook/react-native/issues/10471
+        setTimeout(() => alert("Yes touched!") , 100);
+    }
+
+    optionNo() { 
+        this.openConfirm(false); 
+        // Yes, this is a workaround :(
+        // Why? See this https://github.com/facebook/react-native/issues/10471
+        setTimeout(() => alert("No touched!") , 100);
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -76,11 +90,11 @@ export default class App extends Component {
                     onTouchOutside={() => this.openConfirm(false)}
                     positiveButton={{
                         title: "YES",
-                        onPress: () => { this.openConfirm(false); alert("Yes touched!") }
+                        onPress: () => this.optionYes()
                     }}
                     negativeButton={{
                         title: "NO",
-                        onPress: () => { this.openConfirm(false); alert("No touched!") }
+                        onPress: () => this.optionNo()
                     }}
                 />
 
