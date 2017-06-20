@@ -32,19 +32,48 @@ import {
 
 class Dialog extends Component {
 
-    renderTitle() {
-        const {
-            title, titleStyle
-        } = this.props;
+    renderContent() {
+        const { children, contentStyle } = this.props;
 
-        return title ? (
-            <Text style={[{ color: 'black', fontSize: 18, marginBottom: 10 }, titleStyle]} >{title}</Text>
-        ) : null
+        return (
+            <View style={[{ width: '100%', padding: 24 }, contentStyle]}>
+                {this.renderTitle()}
+                {children}
+            </View>
+        )
+    }
+
+    renderTitle() {
+        const { title, titleStyle } = this.props;
+
+        if (title)
+            return (
+                <Text style={[{ color: "#000000DD", fontSize: 20, marginBottom: 20 }, titleStyle]}>
+                    {title}
+                </Text>
+            )
+    }
+
+    renderButtons() {
+        const { buttons, buttonsStyle } = this.props;
+
+        if (buttons)
+            return (
+                <View style={[{
+                    width: '100%',
+                    paddingLeft: 24,
+                    paddingRight: 8,
+                    paddingTop: 8,
+                    paddingBottom: 8
+                }, buttonsStyle]}>
+                    {buttons}
+                </View>
+            )
     }
 
     render() {
         const {
-            children, dialogStyle, visible, animationType, onRequestClose, onShow,
+            dialogStyle, visible, animationType, onRequestClose, onShow,
             onOrientationChange, onTouchOutside, overlayStyle
         } = this.props;
 
@@ -53,7 +82,7 @@ class Dialog extends Component {
                 animationType={animationType}
                 transparent={true}
                 visible={visible}
-                onRequestClose={onRequestClose ? onRequestClose : () => null}
+                onRequestClose={onRequestClose}
                 onShow={onShow}
                 onOrientationChange={onOrientationChange}
             >
@@ -64,18 +93,18 @@ class Dialog extends Component {
                         justifyContent: 'center',
                         alignItems: 'center',
                         backgroundColor: "#000000AA",
-                        padding: 20
+                        padding: 24
                     }, overlayStyle]}>
 
                         <View style={[{
                             backgroundColor: 'white',
                             width: '100%',
                             borderRadius: 5,
-                            padding: 20
                         }, dialogStyle]}>
 
-                            {this.renderTitle()}
-                            {children}
+                            {this.renderContent()}
+
+                            {this.renderButtons()}
 
                         </View>
 
@@ -88,7 +117,10 @@ class Dialog extends Component {
 
 Dialog.propTypes = {
     dialogStyle: View.propTypes.style,
+    contentStyle: View.propTypes.style,
+    buttonsStyle: View.propTypes.style,
     overlayStyle: View.propTypes.style,
+    buttons: PropTypes.element,
     visible: PropTypes.bool,
     animationType: Modal.propTypes.animationType,
     onRequestClose: PropTypes.func,
@@ -100,7 +132,8 @@ Dialog.propTypes = {
 }
 
 Dialog.defaultProps = {
-    visible: false
+    visible: false,
+    onRequestClose: () => null
 };
 
 export default Dialog

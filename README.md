@@ -20,14 +20,14 @@ Cross-platform simple dialogs for React Native based on the Modal component. ⚛
 
 ## Use
 
-### Dialog
+### Custom Dialog
 
 ```jsx
 import { Dialog } from 'react-native-simple-dialogs';
 
 <Dialog 
     visible={this.state.dialogVisible} 
-    title="Dialog Title"
+    title="Custom Dialog"
     onTouchOutside={() => this.setState({dialogVisible: false})} >
     <View>
         // your content here
@@ -35,7 +35,26 @@ import { Dialog } from 'react-native-simple-dialogs';
 </Dialog>
 ```
 
-### ProgressDialog
+### Confirm Dialog
+
+```jsx
+<ConfirmDialog
+    title="Confirm Dialog"
+    message="Are you sure about that?"
+    visible={this.state.dialogVisible}
+    onTouchOutside={() => this.setState({dialogVisible: false})}
+    positiveButton={{
+        title: "YES",
+        onPress: () => alert("Yes touched!")
+    }}
+    negativeButton={{
+        title: "NO",
+        onPress: () => alert("No touched!") 
+    }}
+/>
+```
+
+### Progress Dialog
 
 ```jsx
 import { ProgressDialog } from 'react-native-simple-dialogs';

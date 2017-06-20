@@ -41,7 +41,7 @@ class ProgressDialog extends Component {
             <Dialog {...this.props} >
                 <View style={{ flexDirection: 'row', alignItems: 'center' }} >
                     <ActivityIndicator animating={true} color={activityIndicatorColor} size={activityIndicatorSize} style={activityIndicatorStyle} />
-                    <Text style={[{ marginLeft: 20 }, messageStyle]}>{message}</Text>
+                    <Text style={[{ marginLeft: 20, fontSize: 18 }, messageStyle]}>{message}</Text>
                 </View>
             </Dialog>
         )

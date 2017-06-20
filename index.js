@@ -21,10 +21,15 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE. 
 */
+
 import Dialog from './src/Dialog';
 import ProgressDialog from './src/ProgressDialog';
+import ConfirmDialog from './src/ConfirmDialog';
+import TouchableEffect from './src/TouchableEffect';
 
 module.exports = {
     Dialog,
-    ProgressDialog
+    ProgressDialog,
+    ConfirmDialog,
+    TouchableEffect
 }
