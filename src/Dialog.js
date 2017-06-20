@@ -27,8 +27,11 @@ import {
     Modal,
     View,
     TouchableWithoutFeedback,
-    Text
+    Text,
+    Platform
 } from 'react-native'
+
+const OS = Platform.OS;
 
 class Dialog extends Component {
 
@@ -46,9 +49,11 @@ class Dialog extends Component {
     renderTitle() {
         const { title, titleStyle } = this.props;
 
+        const textAlign = OS === 'ios' ? "center" : null;
+
         if (title)
             return (
-                <Text style={[{ color: "#000000DD", fontSize: 20, marginBottom: 20 }, titleStyle]}>
+                <Text style={[{ textAlign, color: "#000000DD", fontSize: 20, marginBottom: 20 }, titleStyle]}>
                     {title}
                 </Text>
             )
@@ -57,15 +62,19 @@ class Dialog extends Component {
     renderButtons() {
         const { buttons, buttonsStyle } = this.props;
 
+        const containerStyle = OS === 'ios' ?
+            {} :
+            {
+                width: '100%',
+                paddingLeft: 24,
+                paddingRight: 8,
+                paddingTop: 8,
+                paddingBottom: 8
+            };
+
         if (buttons)
             return (
-                <View style={[{
-                    width: '100%',
-                    paddingLeft: 24,
-                    paddingRight: 8,
-                    paddingTop: 8,
-                    paddingBottom: 8
-                }, buttonsStyle]}>
+                <View style={[containerStyle, buttonsStyle]}>
                     {buttons}
                 </View>
             )
@@ -76,6 +85,8 @@ class Dialog extends Component {
             dialogStyle, visible, animationType, onRequestClose, onShow,
             onOrientationChange, onTouchOutside, overlayStyle
         } = this.props;
+
+        const backgroundColor = OS === 'ios' ? "#e8e8e8" : "#ffffff"
 
         return (
             <Modal
@@ -97,9 +108,15 @@ class Dialog extends Component {
                     }, overlayStyle]}>
 
                         <View style={[{
-                            backgroundColor: 'white',
+                            backgroundColor,
                             width: '100%',
+                            shadowOpacity: 0.24,
                             borderRadius: 5,
+                            elevation: 4,
+                            shadowOffset: {
+                                height: 4,
+                                width: 2
+                            }
                         }, dialogStyle]}>
 
                             {this.renderContent()}
