@@ -9,10 +9,10 @@ Cross-platform simple dialogs for React Native based on the Modal component. ⚛
 ## Demo
 
 ### Android
-<img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/android-dialog.png' width='250' /> <img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/android-progress.png' width='250' />
+<img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/android-dialog.png' width='240' /> <img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/android-confirm.png' width='240' /> <img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/android-progress.png' width='240' />
 
 ### iOS
-<img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/ios-dialog.png' width='250' /> <img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/ios-progress.png' width='250' />
+<img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/ios-dialog.png' width='240' /> <img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/ios-confirm.png' width='240' /> <img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/ios-progress.png' width='240' />
 
 ## Requirements
 
