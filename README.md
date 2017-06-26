@@ -38,6 +38,8 @@ import { Dialog } from 'react-native-simple-dialogs';
 ### Confirm Dialog
 
 ```jsx
+import { ConfirmDialog } from 'react-native-simple-dialogs';
+
 <ConfirmDialog
     title="Confirm Dialog"
     message="Are you sure about that?"
