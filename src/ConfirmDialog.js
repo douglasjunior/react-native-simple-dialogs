@@ -118,11 +118,20 @@ class ConfirmDialog extends Component {
         )
     }
 
+    renderContent() {
+        const { children } = this.props;
+
+        if (children)
+            return children;
+        else
+            return this.renderMessage();
+    }
+
     render() {
         return (
             <Dialog {...this.props}
                 buttons={this.renderButtons()} >
-                {this.renderMessage()}
+                {this.renderContent()}
             </Dialog>
         )
     }
