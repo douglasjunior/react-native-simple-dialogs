@@ -40,6 +40,7 @@ import { Dialog } from 'react-native-simple-dialogs';
 ```jsx
 import { ConfirmDialog } from 'react-native-simple-dialogs';
 
+// with message
 <ConfirmDialog
     title="Confirm Dialog"
     message="Are you sure about that?"
@@ -54,6 +55,20 @@ import { ConfirmDialog } from 'react-native-simple-dialogs';
         onPress: () => alert("No touched!") 
     }}
 />
+
+// with custom content
+<ConfirmDialog
+    title="Confirm Dialog"
+    visible={this.state.dialogVisible}
+    onTouchOutside={() => this.setState({dialogVisible: false})}
+    positiveButton={{
+        title: "OK",
+        onPress: () => alert("Ok touched!")
+    }} >
+    <View>
+        // your content here
+    </View>
+</ConfirmDialog>
 ```
 
 ### Progress Dialog
@@ -61,21 +76,11 @@ import { ConfirmDialog } from 'react-native-simple-dialogs';
 ```jsx
 import { ProgressDialog } from 'react-native-simple-dialogs';
 
-// with message
 <ProgressDialog 
     visible={this.state.progressVisible} 
     title="Progress Dialog" 
     message="Please, wait..."
 />
-
-// with custom content 
-<ProgressDialog 
-    visible={this.state.progressVisible} 
-    title="Progress Dialog" >
-    <View>
-        // your content here
-    </View>
-</ProgressDialog>
 ```
 
 More info on the [sample project](https://github.com/douglasjunior/react-native-simple-dialogs/blob/master/Sample/src/App.js).
