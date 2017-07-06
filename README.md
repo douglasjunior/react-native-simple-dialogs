@@ -61,11 +61,21 @@ import { ConfirmDialog } from 'react-native-simple-dialogs';
 ```jsx
 import { ProgressDialog } from 'react-native-simple-dialogs';
 
+// with message
 <ProgressDialog 
     visible={this.state.progressVisible} 
     title="Progress Dialog" 
     message="Please, wait..."
 />
+
+// with custom content 
+<ProgressDialog 
+    visible={this.state.progressVisible} 
+    title="Progress Dialog" >
+    <View>
+        // your content here
+    </View>
+</ProgressDialog>
 ```
 
 More info on the [sample project](https://github.com/douglasjunior/react-native-simple-dialogs/blob/master/Sample/src/App.js).
