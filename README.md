@@ -12,14 +12,6 @@ Cross-platform simple dialogs for React Native based on the Modal component. ⚛
 - [Confirm Dialog](#confirm-dialog)
 - [Progress Dialog](#progress-dialog)
 
-## Demo
-
-### Android
-<img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/android-dialog.png' width='240' /> <img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/android-confirm.png' width='240' /> <img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/android-progress.png' width='240' />
-
-### iOS
-<img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/ios-dialog.png' width='240' /> <img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/ios-confirm.png' width='240' /> <img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/ios-progress.png' width='240' />
-
 ## Requirements
 
 - React Native >= 0.40.0
@@ -27,6 +19,10 @@ Cross-platform simple dialogs for React Native based on the Modal component. ⚛
 ## Use
 
 ### Custom Dialog
+
+| Android | iOS |
+| - | - |
+| <img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/android-dialog.png' width='240' /> | <img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/ios-dialog.png' width='240' /> |
 
 ```jsx
 import { Dialog } from 'react-native-simple-dialogs';
@@ -42,6 +38,10 @@ import { Dialog } from 'react-native-simple-dialogs';
 ```
 
 ### Confirm Dialog
+
+| Android | iOS |
+| - | - |
+| <img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/android-confirm.png' width='240' /> | <img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/ios-confirm.png' width='240' /> |
 
 ```jsx
 import { ConfirmDialog } from 'react-native-simple-dialogs';
@@ -78,6 +78,10 @@ import { ConfirmDialog } from 'react-native-simple-dialogs';
 ```
 
 ### Progress Dialog
+
+| Android | iOS |
+| - | - |
+| <img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/android-progress.png' width='240' /> | <img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/ios-progress.png' width='240' /> |
 
 ```jsx
 import { ProgressDialog } from 'react-native-simple-dialogs';
