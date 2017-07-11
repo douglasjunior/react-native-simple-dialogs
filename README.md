@@ -6,6 +6,12 @@
 
 Cross-platform simple dialogs for React Native based on the Modal component. ⚛
 
+## Features
+
+- [Custom Dialog](#custom-dialog)
+- [Confirm Dialog](#confirm-dialog)
+- [Progress Dialog](#progress-dialog)
+
 ## Demo
 
 ### Android
