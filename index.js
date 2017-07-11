@@ -27,7 +27,7 @@ import ProgressDialog from './src/ProgressDialog';
 import ConfirmDialog from './src/ConfirmDialog';
 import TouchableEffect from './src/TouchableEffect';
 
-module.exports = {
+export {
     Dialog,
     ProgressDialog,
     ConfirmDialog,

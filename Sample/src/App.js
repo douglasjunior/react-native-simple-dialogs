@@ -5,13 +5,13 @@ import {
     Text,
     View,
     Button,
-    Image
+    Image,
 } from 'react-native';
 
 import {
     Dialog,
     ProgressDialog,
-    ConfirmDialog
+    ConfirmDialog,
 } from 'react-native-simple-dialogs'
 
 export default class App extends Component {
@@ -35,18 +35,18 @@ export default class App extends Component {
         );
     }
 
-    optionYes() { 
-        this.openConfirm(false); 
+    optionYes() {
+        this.openConfirm(false);
         // Yes, this is a workaround :(
         // Why? See this https://github.com/facebook/react-native/issues/10471
-        setTimeout(() => alert("Yes touched!") , 100);
+        setTimeout(() => alert("Yes touched!"), 100);
     }
 
-    optionNo() { 
-        this.openConfirm(false); 
+    optionNo() {
+        this.openConfirm(false);
         // Yes, this is a workaround :(
         // Why? See this https://github.com/facebook/react-native/issues/10471
-        setTimeout(() => alert("No touched!") , 100);
+        setTimeout(() => alert("No touched!"), 100);
     }
 
     render() {
@@ -56,15 +56,15 @@ export default class App extends Component {
                 <Text style={styles.welcome}>Welcome to React Native Simple Dialogs!</Text>
                 <Text style={styles.instructions}>To get started, touch on the buttons</Text>
 
-                <Button onPress={() => this.openDialog(true)} style={{ marginBottom: 20 }} title="Custom Dialog" />
+                <Button onPress={() => this.openDialog(true)} title="Custom Dialog" />
 
                 <View style={{ height: 10 }}></View>
 
-                <Button onPress={() => this.openConfirm(true)} style={{ marginBottom: 20 }} title="Confirm Dialog" />
+                <Button onPress={() => this.openConfirm(true)} title="Confirm Dialog" />
 
                 <View style={{ height: 10 }}></View>
 
-                <Button onPress={() => this.openProgress()} style={{ marginBottom: 20 }} title="Progress Dialog" />
+                <Button onPress={() => this.openProgress()} title="Progress Dialog" />
 
                 <Dialog
                     visible={this.state.showDialog}

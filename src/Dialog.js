@@ -40,8 +40,7 @@ class Dialog extends Component {
         const { children, contentStyle } = this.props;
 
         return (
-            <View style={[{ width: '100%', padding: 24 }, contentStyle]}>
-                {this.renderTitle()}
+            <View style={[{ width: '100%', padding: 24, paddingTop: 0 }, contentStyle]}>
                 {children}
             </View>
         )
@@ -54,7 +53,7 @@ class Dialog extends Component {
 
         if (title)
             return (
-                <Text style={[{ textAlign, color: "#000000DD", fontSize: 20, marginBottom: 20 }, titleStyle]}>
+                <Text style={[{ textAlign, color: "#000000DD", fontSize: 20, padding: 24, paddingBottom: 20 }, titleStyle]}>
                     {title}
                 </Text>
             )
@@ -81,13 +80,25 @@ class Dialog extends Component {
             )
     }
 
+    _renderTouchable(onTouch, content) {
+        if (!onTouch)
+            return content;
+            
+        return (
+            <TouchableWithoutFeedback onPress={onTouch}>
+                {content}
+            </TouchableWithoutFeedback>
+        )
+    }
+
     render() {
         const {
             dialogStyle, visible, animationType, onRequestClose, onShow,
             onOrientationChange, onTouchOutside, overlayStyle
         } = this.props;
 
-        const backgroundColor = OS === 'ios' ? "#e8e8e8" : "#ffffff"
+        const dialogBackgroundColor = OS === 'ios' ? "#e8e8e8" : "#ffffff";
+        const dialogBorderRadius = OS === 'ios' ? 5 : 1;
 
         return (
             <Modal
@@ -98,8 +109,7 @@ class Dialog extends Component {
                 onShow={onShow}
                 onOrientationChange={onOrientationChange}
             >
-                <TouchableWithoutFeedback onPress={onTouchOutside}>
-
+                {this._renderTouchable(onTouchOutside,
                     <View style={[{
                         flex: 1,
                         justifyContent: 'center',
@@ -109,10 +119,10 @@ class Dialog extends Component {
                     }, overlayStyle]}>
 
                         <View style={[{
-                            backgroundColor,
+                            backgroundColor: dialogBackgroundColor,
                             width: '100%',
                             shadowOpacity: 0.24,
-                            borderRadius: 5,
+                            borderRadius: dialogBorderRadius,
                             elevation: 4,
                             shadowOffset: {
                                 height: 4,
@@ -120,14 +130,15 @@ class Dialog extends Component {
                             }
                         }, dialogStyle]}>
 
+                            {this.renderTitle()}
+
                             {this.renderContent()}
 
                             {this.renderButtons()}
 
                         </View>
-
                     </View>
-                </TouchableWithoutFeedback>
+                )}
             </Modal>
         )
     }
