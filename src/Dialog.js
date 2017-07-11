@@ -53,7 +53,13 @@ class Dialog extends Component {
 
         if (title)
             return (
-                <Text style={[{ textAlign, color: "#000000DD", fontSize: 20, padding: 24, paddingBottom: 20 }, titleStyle]}>
+                <Text style={[{
+                    textAlign,
+                    color: "#000000DD",
+                    fontSize: 20,
+                    margin: 24,
+                    marginBottom: 20
+                }, titleStyle]}>
                     {title}
                 </Text>
             )
@@ -83,7 +89,7 @@ class Dialog extends Component {
     _renderTouchable(onTouch, content) {
         if (!onTouch)
             return content;
-            
+
         return (
             <TouchableWithoutFeedback onPress={onTouch}>
                 {content}
