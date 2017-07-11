@@ -40,7 +40,11 @@ class Dialog extends Component {
         const { children, contentStyle } = this.props;
 
         return (
-            <View style={[{ width: '100%', padding: 24, paddingTop: 0 }, contentStyle]}>
+            <View style={[{
+                width: '100%',
+                padding: 24,
+                paddingTop: 20
+            }, contentStyle]}>
                 {children}
             </View>
         )
@@ -58,7 +62,7 @@ class Dialog extends Component {
                     color: "#000000DD",
                     fontSize: 20,
                     margin: 24,
-                    marginBottom: 20
+                    marginBottom: 0
                 }, titleStyle]}>
                     {title}
                 </Text>
