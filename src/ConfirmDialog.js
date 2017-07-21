@@ -29,9 +29,9 @@ import {
     Button,
     Platform
 } from 'react-native'
-import PropTypes from 'prop-types';
+const { OS } = Platform.OS;
 
-const OS = Platform.OS;
+import PropTypes from 'prop-types';
 
 import Dialog from './Dialog'
 import TouchableEffect from './TouchableEffect';
@@ -49,7 +49,11 @@ class ConfirmDialog extends Component {
 
     renderButton(button, positive) {
         if (button) {
-            const { title, titleStyle, style, onPress } = button;
+            const { titleStyle, style, onPress } = button;
+
+            const title = OS === 'ios' ?
+                button.title :
+                button.title.toUpperCase();
 
             const containerStyle = OS === 'ios' ?
                 {
