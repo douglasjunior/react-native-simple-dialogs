@@ -29,47 +29,33 @@ import {
     TouchableNativeFeedback,
     View
 } from 'react-native'
-import PropTypes from 'prop-types';
+const { OS } = Platform;
 
-const OS = Platform.OS;
+import PropTypes from 'prop-types';
 
 class TouchableEffect extends Component {
 
     render() {
-        const { onPress, children, style, background, delayPressIn } = this.props;
-
         let touchable;
 
         if (OS === 'android') {
-            touchable = <TouchableNativeFeedback
-                style={style}
-                onPress={onPress}
-                delayPressIn={delayPressIn}
-                background={background} >
-                {children}
-            </TouchableNativeFeedback>
+            touchable = <TouchableNativeFeedback {...this.props} />
         } else {
-            touchable = <TouchableOpacity
-                style={style}
-                delayPressIn={delayPressIn}
-                onPress={onPress} >
-                {children}
-            </TouchableOpacity>
+            touchable = <TouchableOpacity {...this.props} />
         }
 
         return touchable;
     }
 }
 
-TouchableEffect.propTypes = {
-    onPress: TouchableOpacity.propTypes.onPress.isRequired,
-    style: View.propTypes.style,
-    delayPressIn: TouchableOpacity.propTypes.delayPressIn,
-    background: OS === 'android' ? TouchableNativeFeedback.propTypes.background : PropTypes.any,
+if (OS === 'android') {
+    TouchableEffect.propTypes = { ...TouchableNativeFeedback.propTypes };
+} else {
+    TouchableEffect.propTypes = { ...TouchableOpacity.propTypes };
 }
 
 TouchableEffect.defaultProps = {
-    background: OS === 'android' ? TouchableNativeFeedback.SelectableBackground() : null
+    background: OS === 'android' ? TouchableNativeFeedback.SelectableBackground() : undefined
 };
 
 export default TouchableEffect

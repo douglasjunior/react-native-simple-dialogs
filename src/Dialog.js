@@ -23,7 +23,6 @@
 */
 
 import React, { Component } from 'react'
-import PropTypes from 'prop-types';
 import {
     Modal,
     View,
@@ -31,8 +30,9 @@ import {
     Text,
     Platform
 } from 'react-native'
+const { OS } = Platform;
 
-const OS = Platform.OS;
+import PropTypes from 'prop-types';
 
 class Dialog extends Component {
 
