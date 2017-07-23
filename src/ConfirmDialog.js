@@ -29,7 +29,7 @@ import {
     Button,
     Platform
 } from 'react-native'
-const { OS } = Platform.OS;
+const { OS } = Platform;
 
 import PropTypes from 'prop-types';
 

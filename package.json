@@ -1,6 +1,6 @@
 {
 	"name": "react-native-simple-dialogs",
-	"version": "0.2.1",
+	"version": "0.2.2",
 	"description": "Cross-platform simple dialogs for React Native based on the Modal component. ⚛",
 	"private": false,
 	"repository": {
