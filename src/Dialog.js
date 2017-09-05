@@ -104,7 +104,7 @@ class Dialog extends Component {
     render() {
         const {
             dialogStyle, visible, animationType, onRequestClose, onShow,
-            onOrientationChange, onTouchOutside, overlayStyle
+            onOrientationChange, onTouchOutside, overlayStyle, supportedOrientations
         } = this.props;
 
         const dialogBackgroundColor = OS === 'ios' ? "#e8e8e8" : "#ffffff";
@@ -118,6 +118,7 @@ class Dialog extends Component {
                 onRequestClose={onRequestClose}
                 onShow={onShow}
                 onOrientationChange={onOrientationChange}
+                supportedOrientations={supportedOrientations}
             >
                 {this._renderTouchable(onTouchOutside,
                     <View style={[{
@@ -166,6 +167,7 @@ Dialog.propTypes = {
     onShow: PropTypes.func,
     onOrientationChange: Modal.propTypes.onOrientationChange,
     onTouchOutside: PropTypes.func,
+    supportedOrientations: Modal.propTypes.supportedOrientations,
     title: PropTypes.string,
     titleStyle: Text.propTypes.style
 }
@@ -175,4 +177,4 @@ Dialog.defaultProps = {
     onRequestClose: () => null
 };
 
-export default Dialog
+export default Dialog;
