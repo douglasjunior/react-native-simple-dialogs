@@ -90,13 +90,14 @@ class Dialog extends Component {
             )
     }
 
-    _renderTouchable(onTouch, content) {
-        if (!onTouch)
-            return content;
+    _renderOutsideTouchable(onTouch) {
+        const view = <View style={{ flex: 1, width: '100%' }} />
+
+        if (!onTouch) return view;
 
         return (
-            <TouchableWithoutFeedback onPress={onTouch}>
-                {content}
+            <TouchableWithoutFeedback onPress={onTouch} style={{ flex: 1, width: '100%' }}>
+                {view}
             </TouchableWithoutFeedback>
         )
     }
@@ -120,36 +121,37 @@ class Dialog extends Component {
                 onOrientationChange={onOrientationChange}
                 supportedOrientations={supportedOrientations}
             >
-                {this._renderTouchable(onTouchOutside,
+                <View style={[{
+                    flex: 1,
+                    backgroundColor: "#000000AA",
+                    padding: 24
+                }, overlayStyle]}>
+
+                    {this._renderOutsideTouchable(onTouchOutside)}
+
                     <View style={[{
-                        flex: 1,
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        backgroundColor: "#000000AA",
-                        padding: 24
-                    }, overlayStyle]}>
+                        backgroundColor: dialogBackgroundColor,
+                        width: '100%',
+                        shadowOpacity: 0.24,
+                        borderRadius: dialogBorderRadius,
+                        elevation: 4,
+                        shadowOffset: {
+                            height: 4,
+                            width: 2
+                        }
+                    }, dialogStyle]}>
 
-                        <View style={[{
-                            backgroundColor: dialogBackgroundColor,
-                            width: '100%',
-                            shadowOpacity: 0.24,
-                            borderRadius: dialogBorderRadius,
-                            elevation: 4,
-                            shadowOffset: {
-                                height: 4,
-                                width: 2
-                            }
-                        }, dialogStyle]}>
+                        {this.renderTitle()}
 
-                            {this.renderTitle()}
+                        {this.renderContent()}
 
-                            {this.renderContent()}
+                        {this.renderButtons()}
 
-                            {this.renderButtons()}
-
-                        </View>
                     </View>
-                )}
+
+                    {this._renderOutsideTouchable(onTouchOutside)}
+
+                </View>
             </Modal>
         )
     }
