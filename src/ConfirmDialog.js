@@ -66,10 +66,8 @@ class ConfirmDialog extends Component {
                 {
                     textAlign: "center",
                     textAlignVertical: "center",
-                    color: color ? disabled ? '#cdcdcd' : color : disabled ? '#cdcdcd' : '#007AFF',
-                    fontWeight: positive ? "bold" : "normal",
-                    fontFamily: 'System',
-                    fontSize: 18
+                    color: "#0000FF99",
+                    fontWeight: positive ? "bold" : "normal"
                 } :
                 {
                     height: 36,
@@ -77,9 +75,8 @@ class ConfirmDialog extends Component {
                     padding: 8,
                     textAlign: "center",
                     textAlignVertical: "center",
-                    color: color ? disabled ? '#a1a1a1' : color : disabled ? '#a1a1a1' : '#2196F3',
-                    fontWeight: "500",
-                    fontFamily: 'sans-serif-medium'
+                    color: "#0000FF99",
+                    fontWeight: "bold"
                 }
 
             const touchableStyle = OS === 'ios' ?
@@ -148,7 +145,6 @@ const buttonPropType = PropTypes.shape({
     title: PropTypes.string.isRequired,
     onPress: PropTypes.func.isRequired,
     disabled: PropTypes.bool,
-    color: PropTypes.string,
     titleStyle: Text.propTypes.style,
     style: View.propTypes.style
 });
