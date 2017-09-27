@@ -49,7 +49,7 @@ class ConfirmDialog extends Component {
 
     renderButton(button, positive) {
         if (button) {
-            const { titleStyle, style, onPress } = button;
+            const { titleStyle, style, onPress, disabled, color, } = button;
 
             const title = OS === 'ios' ?
                 button.title :
@@ -84,7 +84,7 @@ class ConfirmDialog extends Component {
                 {};
 
             return (
-                <TouchableEffect onPress={onPress} style={touchableStyle}>
+                <TouchableEffect onPress={onPress} disabled={disabled} style={touchableStyle}>
                     <View style={[containerStyle, style]}>
                         <Text
                             style={[textStyle, titleStyle]}
@@ -144,6 +144,7 @@ class ConfirmDialog extends Component {
 const buttonPropType = PropTypes.shape({
     title: PropTypes.string.isRequired,
     onPress: PropTypes.func.isRequired,
+    disabled: PropTypes.bool,
     titleStyle: Text.propTypes.style,
     style: View.propTypes.style
 });
