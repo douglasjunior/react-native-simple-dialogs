@@ -49,7 +49,7 @@ class ConfirmDialog extends Component {
 
     renderButton(button, positive) {
         if (button) {
-            const { titleStyle, style, onPress } = button;
+            const { titleStyle, style, onPress, disabled, color, } = button;
 
             const title = OS === 'ios' ?
                 button.title :
@@ -66,8 +66,10 @@ class ConfirmDialog extends Component {
                 {
                     textAlign: "center",
                     textAlignVertical: "center",
-                    color: "#0000FF99",
-                    fontWeight: positive ? "bold" : "normal"
+                    color: color ? disabled ? '#cdcdcd' : color : disabled ? '#cdcdcd' : '#007AFF',
+                    fontWeight: positive ? "bold" : "normal",
+                    fontFamily: 'System',
+                    fontSize: 18
                 } :
                 {
                     height: 36,
@@ -75,8 +77,9 @@ class ConfirmDialog extends Component {
                     padding: 8,
                     textAlign: "center",
                     textAlignVertical: "center",
-                    color: "#0000FF99",
-                    fontWeight: "bold"
+                    color: color ? disabled ? '#a1a1a1' : color : disabled ? '#a1a1a1' : '#2196F3',
+                    fontWeight: "500",
+                    fontFamily: 'sans-serif-medium'
                 }
 
             const touchableStyle = OS === 'ios' ?
@@ -84,7 +87,7 @@ class ConfirmDialog extends Component {
                 {};
 
             return (
-                <TouchableEffect onPress={onPress} style={touchableStyle}>
+                <TouchableEffect onPress={onPress} disabled={disabled} style={touchableStyle}>
                     <View style={[containerStyle, style]}>
                         <Text
                             style={[textStyle, titleStyle]}
@@ -144,6 +147,8 @@ class ConfirmDialog extends Component {
 const buttonPropType = PropTypes.shape({
     title: PropTypes.string.isRequired,
     onPress: PropTypes.func.isRequired,
+    disabled: PropTypes.bool,
+    color: PropTypes.string,
     titleStyle: Text.propTypes.style,
     style: View.propTypes.style
 });
