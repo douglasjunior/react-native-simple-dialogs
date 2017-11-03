@@ -14,7 +14,7 @@ Cross-platform simple dialogs for React Native based on the Modal component. ⚛
 
 ## Requirements
 
-- React Native >= 0.40.0
+- React Native >= 0.44.0
 
 ## Use
 
