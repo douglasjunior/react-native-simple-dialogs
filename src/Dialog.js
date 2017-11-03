@@ -26,6 +26,7 @@ import React, { Component } from 'react'
 import {
     Modal,
     View,
+    ViewPropTypes,
     TouchableWithoutFeedback,
     Text,
     Platform
@@ -158,10 +159,10 @@ class Dialog extends Component {
 }
 
 Dialog.propTypes = {
-    dialogStyle: View.propTypes.style,
-    contentStyle: View.propTypes.style,
-    buttonsStyle: View.propTypes.style,
-    overlayStyle: View.propTypes.style,
+    dialogStyle: ViewPropTypes.style,
+    contentStyle: ViewPropTypes.style,
+    buttonsStyle: ViewPropTypes.style,
+    overlayStyle: ViewPropTypes.style,
     buttons: PropTypes.element,
     visible: PropTypes.bool,
     animationType: Modal.propTypes.animationType,

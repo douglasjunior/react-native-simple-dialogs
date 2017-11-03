@@ -93,6 +93,15 @@ export default class App extends Component {
                     }}
                     negativeButton={{
                         title: "NO",
+                        disabled: true,
+                        titleStyle: {
+                            color: 'blue',
+                            colorDisabled: 'aqua',
+                        },
+                        style: {
+                            backgroundColor: 'transparent',
+                            backgroundColorDisabled: 'transparent',
+                        },
                         onPress: () => this.optionNo()
                     }}
                 />

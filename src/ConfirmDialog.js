@@ -25,6 +25,7 @@
 import React, { Component } from 'react'
 import {
     View,
+    ViewPropTypes,
     Text,
     Button,
     Platform
@@ -36,7 +37,53 @@ import PropTypes from 'prop-types';
 import Dialog from './Dialog'
 import TouchableEffect from './TouchableEffect';
 
+const DEFAULT_COLOR_BUTTON = "#0000FF99";
+const DEFAULT_BACKGROUNDCOLOR_BUTTON = "transparent";
+
 class ConfirmDialog extends Component {
+
+    getButtonStyle = (button, positive) => {
+        const { disabled } = button;
+        const style = button.style || {};
+        const { backgroundColor, backgroundColorDisabled, ...othersStyle } = style;
+        return Platform.select({
+            ios: {
+                height: 46,
+                justifyContent: "center",
+                backgroundColor: (!disabled ? backgroundColor : (backgroundColorDisabled || backgroundColor)) || DEFAULT_BACKGROUNDCOLOR_BUTTON,
+                ...othersStyle
+            },
+            android: {
+                backgroundColor: (!disabled ? backgroundColor : (backgroundColorDisabled || backgroundColor)) || DEFAULT_BACKGROUNDCOLOR_BUTTON,
+                ...othersStyle
+            }
+        })
+    }
+
+    getButtonTextStyle = (button, positive) => {
+        const { disabled } = button;
+        const titleStyle = button.titleStyle || {};
+        const { color, colorDisabled, ...othersStyle } = titleStyle;
+        return Platform.select({
+            ios: {
+                textAlign: "center",
+                textAlignVertical: "center",
+                color: (!disabled ? color : (colorDisabled || color)) || DEFAULT_COLOR_BUTTON,
+                fontWeight: positive ? "bold" : "normal",
+                ...othersStyle
+            },
+            android: {
+                height: 36,
+                minWidth: 64,
+                padding: 8,
+                textAlign: "center",
+                textAlignVertical: "center",
+                color: (!disabled ? color : (colorDisabled || color)) || DEFAULT_COLOR_BUTTON,
+                fontWeight: "bold",
+                ...othersStyle
+            }
+        });
+    }
 
     renderMessage() {
         const { message, messageStyle } = this.props;
@@ -49,35 +96,15 @@ class ConfirmDialog extends Component {
 
     renderButton(button, positive) {
         if (button) {
-            const { titleStyle, style, onPress, disabled, color, } = button;
+            const { onPress, disabled, color, } = button;
 
             const title = OS === 'ios' ?
                 button.title :
                 button.title.toUpperCase();
 
-            const containerStyle = OS === 'ios' ?
-                {
-                    height: 46,
-                    justifyContent: "center"
-                } :
-                {}
+            const containerStyle = this.getButtonStyle(button, positive);
 
-            const textStyle = OS === 'ios' ?
-                {
-                    textAlign: "center",
-                    textAlignVertical: "center",
-                    color: "#0000FF99",
-                    fontWeight: positive ? "bold" : "normal"
-                } :
-                {
-                    height: 36,
-                    minWidth: 64,
-                    padding: 8,
-                    textAlign: "center",
-                    textAlignVertical: "center",
-                    color: "#0000FF99",
-                    fontWeight: "bold"
-                }
+            const textStyle = this.getButtonTextStyle(button, positive);
 
             const touchableStyle = OS === 'ios' ?
                 { flex: 1 } :
@@ -85,10 +112,8 @@ class ConfirmDialog extends Component {
 
             return (
                 <TouchableEffect onPress={onPress} disabled={disabled} style={touchableStyle}>
-                    <View style={[containerStyle, style]}>
-                        <Text
-                            style={[textStyle, titleStyle]}
-                        >{title}</Text>
+                    <View style={containerStyle}>
+                        <Text style={textStyle} >{title}</Text>
                     </View>
                 </TouchableEffect>
             )
@@ -145,8 +170,14 @@ const buttonPropType = PropTypes.shape({
     title: PropTypes.string.isRequired,
     onPress: PropTypes.func.isRequired,
     disabled: PropTypes.bool,
-    titleStyle: Text.propTypes.style,
-    style: View.propTypes.style
+    titleStyle: {
+        ...Text.propTypes.style,
+        colorDisabled: PropTypes.string,
+    },
+    style: {
+        ...ViewPropTypes.style,
+        backgroundColorDisabled: PropTypes.string,
+    }
 });
 
 ConfirmDialog.propTypes = {

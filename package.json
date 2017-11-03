@@ -39,6 +39,6 @@
 		"preset": "react-native"
 	},
 	"peerDependencies": {
-		"react-native": ">=0.40"
+		"react-native": ">=0.44"
 	}
 }
