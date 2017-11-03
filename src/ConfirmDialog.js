@@ -170,14 +170,14 @@ const buttonPropType = PropTypes.shape({
     title: PropTypes.string.isRequired,
     onPress: PropTypes.func.isRequired,
     disabled: PropTypes.bool,
-    titleStyle: {
+    titleStyle: PropTypes.shape({
         ...Text.propTypes.style,
         colorDisabled: PropTypes.string,
-    },
-    style: {
+    }),
+    style: PropTypes.shape({
         ...ViewPropTypes.style,
         backgroundColorDisabled: PropTypes.string,
-    }
+    })
 });
 
 ConfirmDialog.propTypes = {
