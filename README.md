@@ -12,7 +12,7 @@ Cross-platform simple dialogs for React Native based on the Modal component. ⚛
 - [Confirm Dialog](#confirm-dialog)
 - [Progress Dialog](#progress-dialog)
 
-## Screnshots
+## Screenshots
 
 | Android | iOS |
 | - | - |
@@ -26,6 +26,10 @@ Cross-platform simple dialogs for React Native based on the Modal component. ⚛
 
 ## Install 
 
+```bash
+  yarn add react-native-simple-dialogs
+```
+Or
 ```bash
   npm i -S react-native-simple-dialogs
 ```
