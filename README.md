@@ -24,6 +24,11 @@ Cross-platform simple dialogs for React Native based on the Modal component. ⚛
 
 - React Native >= 0.44.0
 
+## NOTES
+
+- for RN 0.56.0 or later use react-native-simple-dialogs@latest
+- for RN 0.44.0 ... 0.55.4, use react-native-simple-dialogs@0.3.1
+
 ## Install 
 
 ```bash
