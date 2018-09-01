@@ -63,7 +63,8 @@ class Dialog extends Component {
                     color: "#000000DD",
                     fontSize: 20,
                     margin: 24,
-                    marginBottom: 0
+                    marginBottom: 0,
+                    alignItems: "center"
                 }, titleStyle]}>
                     {title}
                 </Text>
