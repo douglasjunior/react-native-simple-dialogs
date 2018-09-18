@@ -36,14 +36,15 @@ import Dialog from './Dialog'
 class ProgressDialog extends Component {
     render() {
         const {
-            message, messageStyle, activityIndicatorColor, activityIndicatorSize, activityIndicatorStyle
+            message, messageStyle, activityIndicatorColor, activityIndicatorSize, activityIndicatorStyle, image, imageStyle
         } = this.props;
 
         return (
             <Dialog {...this.props} >
                 <View style={{ flexDirection: 'row', alignItems: 'center' }} >
-                    <ActivityIndicator animating={true} color={activityIndicatorColor} size={activityIndicatorSize} style={activityIndicatorStyle} />
+                    {/* <ActivityIndicator animating={true} color={activityIndicatorColor} size={activityIndicatorSize} style={activityIndicatorStyle} /> */}
                     <Text style={[{ marginLeft: 20, fontSize: 18, color: "#00000089" }, messageStyle]}>{message}</Text>
+                    <Image source={image} style={imageStyle}/>
                 </View>
             </Dialog>
         )
