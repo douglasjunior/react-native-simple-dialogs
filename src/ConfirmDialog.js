@@ -37,7 +37,7 @@ import PropTypes from 'prop-types';
 import Dialog from './Dialog'
 import TouchableEffect from './TouchableEffect';
 
-const DEFAULT_COLOR_BUTTON = "#0000FF99";
+const DEFAULT_COLOR_BUTTON = "#00000099";
 const DEFAULT_BACKGROUNDCOLOR_BUTTON = "transparent";
 
 class ConfirmDialog extends Component {
@@ -106,14 +106,18 @@ class ConfirmDialog extends Component {
 
             const textStyle = this.getButtonTextStyle(button, positive);
 
+            const { positiveButtonStyle, negativeButtonStyle } = this.props;
+            const { positiveButtonTextStyle, negativeButtonTextStyle } = this.props;
+            const buttonViewStyle = positive ? positiveButtonStyle : negativeButtonStyle;
+            const buttonTextStyle = positive ? positiveButtonTextStyle : negativeButtonTextStyle;
             const touchableStyle = OS === 'ios' ?
                 { flex: 1 } :
                 {};
 
             return (
                 <TouchableEffect onPress={onPress} disabled={disabled} style={touchableStyle}>
-                    <View style={containerStyle}>
-                        <Text style={textStyle} >{title}</Text>
+                    <View style={buttonViewStyle}>
+                        <Text style={buttonTextStyle} >{title}</Text>
                     </View>
                 </TouchableEffect>
             )

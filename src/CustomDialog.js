@@ -26,40 +26,44 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import {
     View,
-    ActivityIndicator,
     Text,
+    Image,
     ViewPropTypes
 } from 'react-native';
+import TouchableEffect from './TouchableEffect';
 
 import Dialog from './Dialog'
 
-class ProgressDialog extends Component {
+class CustomDialog extends Component {
     render() {
         const {
-            message, messageStyle, activityIndicatorColor, activityIndicatorSize, activityIndicatorStyle, image, imageStyle
+            message, messageStyle, image, imageStyle, title, titleStyle, buttonStyle, buttonTextStyle, buttonText, onPress
         } = this.props;
 
         return (
             <Dialog {...this.props} >
-                <View style={{ flexDirection: 'row', alignItems: 'center' }} >
-                    {/* <ActivityIndicator animating={true} color={activityIndicatorColor} size={activityIndicatorSize} style={activityIndicatorStyle} /> */}
-                    <Text style={[{ marginLeft: 20, fontSize: 18, color: "#00000089" }, messageStyle]}>{message}</Text>
-                    <Image source={image} style={imageStyle}/>
+                <View style={{ flexDirection: 'column', alignItems: 'center' }} >
+                    {/* <Text style={[{ marginLeft: 20, fontSize: 18, color: "#00000089" }, titleStyle]}>{title}</Text> */}
+                    <Image source={image} style={imageStyle} />
+                    <Text style={[{ marginLeft: 0, fontSize: 18, color: "#00000089" }, messageStyle]}>{message}</Text>
+
+                    <View style={buttonStyle}>
+                        <TouchableEffect onPress={onPress}>
+                            <Text style={buttonTextStyle}>{buttonText}</Text>
+                        </TouchableEffect>
+                    </View>
                 </View>
             </Dialog>
         )
     }
 }
 
-ProgressDialog.propTypes = {
+CustomDialog.propTypes = {
     ...Dialog.propTypes,
-    message: PropTypes.string.isRequired,
-    messageStyle: Text.propTypes.style,
-    activityIndicatorColor: PropTypes.string,
-    activityIndicatorSize: PropTypes.string,
-    activityIndicatorStyle: ViewPropTypes.style
+    title: PropTypes.string.isRequired,
+    titleStyle: Text.propTypes.style,
 }
 
-delete ProgressDialog.propTypes.children;
+delete CustomDialog.propTypes.children;
 
-export default ProgressDialog
+export default CustomDialog
