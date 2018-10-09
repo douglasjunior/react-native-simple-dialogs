@@ -27,11 +27,9 @@ import {
     Platform,
     TouchableOpacity,
     TouchableNativeFeedback,
-    View
 } from 'react-native'
-const { OS } = Platform;
 
-import PropTypes from 'prop-types';
+const { OS } = Platform;
 
 class TouchableEffect extends Component {
 

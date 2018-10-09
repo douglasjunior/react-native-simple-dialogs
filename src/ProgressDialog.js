@@ -52,7 +52,7 @@ class ProgressDialog extends Component {
 
 ProgressDialog.propTypes = {
     ...Dialog.propTypes,
-    message: PropTypes.string.isRequired,
+    message: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
     messageStyle: Text.propTypes.style,
     activityIndicatorColor: PropTypes.string,
     activityIndicatorSize: PropTypes.string,

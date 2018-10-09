@@ -27,7 +27,6 @@ import {
     View,
     ViewPropTypes,
     Text,
-    Button,
     Platform
 } from 'react-native'
 const { OS } = Platform;
@@ -182,7 +181,7 @@ const buttonPropType = PropTypes.shape({
 
 ConfirmDialog.propTypes = {
     ...Dialog.propTypes,
-    message: PropTypes.string,
+    message: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
     messageStyle: Text.propTypes.style,
     negativeButton: buttonPropType,
     positiveButton: buttonPropType.isRequired
