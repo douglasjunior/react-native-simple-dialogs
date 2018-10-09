@@ -18,15 +18,15 @@ export default class App extends Component {
 
     state = {}
 
-    openDialog(show) {
+    openDialog = show => {
         this.setState({ showDialog: show })
     }
 
-    openConfirm(show) {
+    openConfirm = show => {
         this.setState({ showConfirm: show })
     }
 
-    openProgress() {
+    openProgress = () => {
         this.setState({ showProgress: true })
 
         setTimeout(
@@ -35,14 +35,14 @@ export default class App extends Component {
         );
     }
 
-    optionYes() {
+    optionYes = () => {
         this.openConfirm(false);
         // Yes, this is a workaround :(
         // Why? See this https://github.com/facebook/react-native/issues/10471
         setTimeout(() => alert("Yes touched!"), 100);
     }
 
-    optionNo() {
+    optionNo = () => {
         this.openConfirm(false);
         // Yes, this is a workaround :(
         // Why? See this https://github.com/facebook/react-native/issues/10471
@@ -64,7 +64,7 @@ export default class App extends Component {
 
                 <View style={{ height: 10 }}></View>
 
-                <Button onPress={() => this.openProgress()} title="Progress Dialog" />
+                <Button onPress={this.openProgress} title="Progress Dialog" />
 
                 <Dialog
                     visible={this.state.showDialog}
@@ -89,10 +89,11 @@ export default class App extends Component {
                     onTouchOutside={() => this.openConfirm(false)}
                     positiveButton={{
                         title: "YES",
-                        onPress: () => this.optionYes()
+                        onPress: this.optionYes
                     }}
                     negativeButton={{
                         title: "NO",
+                        onPress: this.optionNo,
                         disabled: true,
                         titleStyle: {
                             color: 'blue',
@@ -102,7 +103,6 @@ export default class App extends Component {
                             backgroundColor: 'transparent',
                             backgroundColorDisabled: 'transparent',
                         },
-                        onPress: () => this.optionNo()
                     }}
                 />
 
