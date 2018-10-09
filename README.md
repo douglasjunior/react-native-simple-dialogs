@@ -29,7 +29,7 @@ Cross-platform simple dialogs for React Native based on the Modal component. ⚛
 - for RN 0.56.0 or later use react-native-simple-dialogs@latest
 - for RN 0.44.0 ... 0.55.4, use react-native-simple-dialogs@0.3.1
 
-## Install 
+## Install
 
 ```bash
   yarn add react-native-simple-dialogs
@@ -46,8 +46,8 @@ Or
 ```jsx
 import { Dialog } from 'react-native-simple-dialogs';
 
-<Dialog 
-    visible={this.state.dialogVisible} 
+<Dialog
+    visible={this.state.dialogVisible}
     title="Custom Dialog"
     onTouchOutside={() => this.setState({dialogVisible: false})} >
     <View>
@@ -55,6 +55,25 @@ import { Dialog } from 'react-native-simple-dialogs';
     </View>
 </Dialog>
 ```
+
+#### Available props
+
+| Name                  | Type                                                                                                | Default    | Description                                                                                                                                                 |
+| --------------------- | --------------------------------------------------------------------------------------------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| visible               | Boolean                                                                                             | false      | Show the modal?                                                                                                                                             |
+| onRequestClose        | Function                                                                                            | null       | Callback that's called when users taps the hardware back button on Android                                                                                  |
+| animationType         | Enum('none', 'slide', 'fade')                                                                       | 'none'     | Controls how the modal animates                                                                                                                             |
+| onShow                | Function                                                                                            | null       | Callback that's called once the modal has been shown                                                                                                        |
+| onOrientationChange   | Function                                                                                            | null       | Callback that's called when the orientation change while the modal is being displayed on iOS                                                                |
+| supportedOrientations | Array of Enum('portrait', 'portrait-upside-down', 'landscape', 'landscape-left', 'landscape-right') | 'portrait' | Allowed orientation while modals is being shown. More info at [react-native docs](https://facebook.github.io/react-native/docs/modal#supportedorientations) |
+| onTouchOutside        | Function                                                                                            | null       | Callbac that's called when users tap outside the shown modal                                                                                                |
+| title                 | String                                                                                              | null       | Modal's title                                                                                                                                               |
+| titleStyle            | React StyleSheet                                                                                    | null       | Custom text style object for modal's title                                                                                                                  |
+| dialogStyle           | React StyleSheet                                                                                    | null       | Custom view style for dialog box                                                                                                                            |
+| contentStyle          | React StyleSheet                                                                                    | null       | Custom view style for dialog content wrapper                                                                                                                |
+| buttonsStyle          | React StyleSheet                                                                                    | null       | Custom view style for dialog button wrapper                                                                                                                 |
+| overlayStyle          | React StyleSheet                                                                                    | null       | Custom view style for dialog overlay                                                                                                                        |
+| buttons               | React Component                                                                                     | null       | Modal button component                                                                                                                                      |
 
 ### Confirm Dialog
 
@@ -73,7 +92,7 @@ import { ConfirmDialog } from 'react-native-simple-dialogs';
     }}
     negativeButton={{
         title: "NO",
-        onPress: () => alert("No touched!") 
+        onPress: () => alert("No touched!")
     }}
 />
 
@@ -92,17 +111,49 @@ import { ConfirmDialog } from 'react-native-simple-dialogs';
 </ConfirmDialog>
 ```
 
+#### Available props
+
+| Name              | Type             | Default      | Description                                                                                   |
+| ----------------- | ---------------- | ------------ | --------------------------------------------------------------------------------------------- |
+| ...{Dialog.props} | Dialog Props     | null         | Same props as Dialog Component                                                                |
+| message           | String           | null         | Message shown in the confirm dialog                                                           |
+| messageStyle      | React StyleSheet | null         | Custom text style for message                                                                 |
+| negativeButton    | Button Props     | null         | Button element object to describe the negative button. See below for detailed shape of button |
+| positiveButton    | Button Props     | **REQUIRED** | Button element object to describe the positive button. See below for detailed shape of button |
+
+##### Button props
+
+| Name       | Type             | Default      |
+| ---------- | ---------------- | ------------ |
+| title      | String           | **REQUIRED** |
+| onPress    | Function         | **REQUIRED** |
+| disabled   | Boolean          | null         |
+| titleStyle | React StyleSheet | null         |
+| style      | React StyleSheet | null         |
+
+
 ### Progress Dialog
 
 ```jsx
 import { ProgressDialog } from 'react-native-simple-dialogs';
 
-<ProgressDialog 
-    visible={this.state.progressVisible} 
-    title="Progress Dialog" 
+<ProgressDialog
+    visible={this.state.progressVisible}
+    title="Progress Dialog"
     message="Please, wait..."
 />
 ```
+
+#### Available props
+
+| Name                   | Type                           | Default      | Description                                             |
+| ---------------------- | ------------------------------ | ------------ | ------------------------------------------------------- |
+| ...{Dialog.props}      | Dialog Props                   | null         | Same props as Dialog Component                          |
+| message                | String                         | **REQUIRED** | Message shown in the progress dialog                    |
+| messageStyle           | React StyleSheet               | null         | Custom text style for message                           |
+| activityIndicatorColor | color                          | 'gray'       | The foreground color of the spinner                     |
+| activityIndicatorSize  | enum('small', 'large'), number | 'small'      | Size of the indicator. Number only supported on Android |
+| activityIndicatorStyle | React StyleSheet               | null         | Custom style for the activity indicator                 |
 
 More info on the [sample project](https://github.com/douglasjunior/react-native-simple-dialogs/blob/master/Sample/src/App.js).
 
