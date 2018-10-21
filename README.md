@@ -12,13 +12,17 @@ Cross-platform simple dialogs for React Native based on the Modal component. ⚛
 - [Confirm Dialog](#confirm-dialog)
 - [Progress Dialog](#progress-dialog)
 
+## Expo Snack
+An
+[Expo Demo Link](https://snack.expo.io/@incorelabs/react-native-simple-dialogs-example)
+
 ## Screenshots
 
 | Android | iOS |
 | - | - |
-| <img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/android-dialog.png' width='240' /> | <img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/ios-dialog.png' width='240' /> |
-| <img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/android-confirm.png' width='240' /> | <img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/ios-confirm.png' width='240' /> |
-| <img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/android-progress.png' width='240' /> | <img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/ios-progress.png' width='240' /> |
+| <img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/android-dialog.png' width='320' /> | <img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/ios-dialog.png' width='320' /> |
+| <img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/android-confirm.png' width='320' /> | <img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/ios-confirm.png' width='320' /> |
+| <img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/android-progress.png' width='320' /> | <img src='https://raw.githubusercontent.com/douglasjunior/react-native-simple-dialogs/master/screenshots/ios-progress.png' width='320' /> |
 
 ## Requirements
 
