@@ -30,7 +30,8 @@ An
 
 ## NOTES
 
-- for RN 0.56.0 or later use react-native-simple-dialogs@latest
+- for RN 0.58.0 or later use react-native-simple-dialogs@latest
+- for RN 0.56.0 ... 0.57.8 use react-native-simple-dialogs@1.0.0
 - for RN 0.44.0 ... 0.55.4, use react-native-simple-dialogs@0.3.1
 
 ## Install
