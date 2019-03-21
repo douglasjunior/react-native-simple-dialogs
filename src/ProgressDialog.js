@@ -55,7 +55,10 @@ ProgressDialog.propTypes = {
     message: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
     messageStyle: Text.propTypes.style,
     activityIndicatorColor: PropTypes.string,
-    activityIndicatorSize: PropTypes.string,
+    activityIndicatorSize: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number
+    ]),
     activityIndicatorStyle: ViewPropTypes.style
 }
 
