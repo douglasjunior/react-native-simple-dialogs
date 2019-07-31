@@ -73,12 +73,12 @@ import { Dialog } from 'react-native-simple-dialogs';
 | supportedOrientations | Array of Enum('portrait', 'portrait-upside-down', 'landscape', 'landscape-left', 'landscape-right') | 'portrait' | Allowed orientation while modals is being shown. More info at [react-native docs](https://facebook.github.io/react-native/docs/modal#supportedorientations) |
 | onTouchOutside        | Function                                                                                            | null       | Callback that's called when users tap outside the shown modal                                                                                                |
 | title                 | String                                                                                              | null       | Modal's title                                                                                                                                               |
-| titleStyle            | React StyleSheet                                                                                    | null       | Custom text style object for modal's title                                                                                                                  |
-| dialogStyle           | React StyleSheet                                                                                    | null       | Custom view style for dialog box                                                                                                                            |
-| contentStyle          | React StyleSheet                                                                                    | null       | Custom view style for dialog content wrapper                                                                                                                |
-| buttonsStyle          | React StyleSheet                                                                                    | null       | Custom view style for dialog button wrapper                                                                                                                 |
-| overlayStyle          | React StyleSheet                                                                                    | null       | Custom view style for dialog overlay                                                                                                                        |
-| buttons               | React Component                                                                                     | null       | Modal button component                                                                                                                                      |
+| titleStyle            | [Text StyleSheet](https://facebook.github.io/react-native/docs/text-style-props) | null       | Custom text style object for modal's title 
+| dialogStyle           | [View StyleSheet](https://facebook.github.io/react-native/docs/view-style-props) | null       | Custom view style for dialog box  |
+| contentStyle          | [View StyleSheet](https://facebook.github.io/react-native/docs/view-style-props) | null       | Custom view style for dialog content wrapper |
+| buttonsStyle          | [View StyleSheet](https://facebook.github.io/react-native/docs/view-style-props) | null       | Custom view style for dialog button wrapper                                                                                                                 |
+| overlayStyle          | [View StyleSheet](https://facebook.github.io/react-native/docs/view-style-props) | null       | Custom view style for dialog overlay |
+| buttons               | React Component                                                                                     | null       | Modal button component |
 
 ### Confirm Dialog
 
@@ -122,7 +122,7 @@ import { ConfirmDialog } from 'react-native-simple-dialogs';
 | ----------------- | ---------------- | ------------ | --------------------------------------------------------------------------------------------- |
 | ...{Dialog.props} | Dialog Props     | null         | Same props as Dialog Component                                                                |
 | message           | String           | null         | Message shown in the confirm dialog                                                           |
-| messageStyle      | React StyleSheet | null         | Custom text style for message                                                                 |
+| messageStyle      | [Text StyleSheet](https://facebook.github.io/react-native/docs/text-style-props) | null         | Custom text style for message                                                                 |
 | negativeButton    | Button Props     | null         | Button element object to describe the negative button. See below for detailed shape of button |
 | positiveButton    | Button Props     | **REQUIRED** | Button element object to describe the positive button. See below for detailed shape of button |
 
@@ -133,8 +133,8 @@ import { ConfirmDialog } from 'react-native-simple-dialogs';
 | title      | String           | **REQUIRED** |
 | onPress    | Function         | **REQUIRED** |
 | disabled   | Boolean          | null         |
-| titleStyle | React StyleSheet | null         |
-| style      | React StyleSheet | null         |
+| titleStyle | [Text StyleSheet](https://facebook.github.io/react-native/docs/text-style-props) | null         |
+| style      | [View StyleSheet](https://facebook.github.io/react-native/docs/view-style-props) | null         |
 
 
 ### Progress Dialog
@@ -155,10 +155,10 @@ import { ProgressDialog } from 'react-native-simple-dialogs';
 | ---------------------- | ------------------------------ | ------------ | ------------------------------------------------------- |
 | ...{Dialog.props}      | Dialog Props                   | null         | Same props as Dialog Component                          |
 | message                | String                         | **REQUIRED** | Message shown in the progress dialog                    |
-| messageStyle           | React StyleSheet               | null         | Custom text style for message                           |
+| messageStyle           | [Text StyleSheet](https://facebook.github.io/react-native/docs/text-style-props)               | null         | Custom text style for message                           |
 | activityIndicatorColor | color                          | 'gray'       | The foreground color of the spinner                     |
 | activityIndicatorSize  | enum('small', 'large'), number | 'small'      | Size of the indicator. Number only supported on Android |
-| activityIndicatorStyle | React StyleSheet               | null         | Custom style for the activity indicator                 |
+| activityIndicatorStyle | [View StyleSheet](https://facebook.github.io/react-native/docs/view-style-props) | null         | Custom style for the activity indicator                 |
 
 More info on the [sample project](https://github.com/douglasjunior/react-native-simple-dialogs/blob/master/Sample/src/App.js).
 
