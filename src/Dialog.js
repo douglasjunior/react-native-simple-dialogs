@@ -125,39 +125,44 @@ class Dialog extends Component {
                 supportedOrientations={supportedOrientations}
             >
                 <ScrollView
-                    contentContainerStyle={[{
+                    style={{
                         flex: 1,
-                        backgroundColor: "#000000AA",
-                        padding: 24
-                    }, overlayStyle]}
+                    }}
+                    contentContainerStyle={{
+                        flex: 1,
+                    }}
                     keyboardDismissMode={keyboardDismissMode}
                     keyboardShouldPersistTaps={keyboardShouldPersistTaps}
                 >
-
-                    {this._renderOutsideTouchable(onTouchOutside)}
-
                     <View style={[{
-                        backgroundColor: dialogBackgroundColor,
-                        width: '100%',
-                        shadowOpacity: 0.24,
-                        borderRadius: dialogBorderRadius,
-                        elevation: 4,
-                        shadowOffset: {
-                            height: 4,
-                            width: 2
-                        }
-                    }, dialogStyle]}>
+                        flex: 1,
+                        backgroundColor: "#000000AA",
+                        padding: 24
+                    }, overlayStyle]}>
+                        {this._renderOutsideTouchable(onTouchOutside)}
 
-                        {this.renderTitle()}
+                        <View style={[{
+                            backgroundColor: dialogBackgroundColor,
+                            width: '100%',
+                            shadowOpacity: 0.24,
+                            borderRadius: dialogBorderRadius,
+                            elevation: 4,
+                            shadowOffset: {
+                                height: 4,
+                                width: 2
+                            }
+                        }, dialogStyle]}>
 
-                        {this.renderContent()}
+                            {this.renderTitle()}
 
-                        {this.renderButtons()}
+                            {this.renderContent()}
 
+                            {this.renderButtons()}
+
+                        </View>
+
+                        {this._renderOutsideTouchable(onTouchOutside)}
                     </View>
-
-                    {this._renderOutsideTouchable(onTouchOutside)}
-
                 </ScrollView>
             </Modal>
         )
@@ -175,7 +180,9 @@ Dialog.propTypes = {
     onShow: PropTypes.func,
     onTouchOutside: PropTypes.func,
     title: PropTypes.string,
-    titleStyle: Text.propTypes.style
+    titleStyle: Text.propTypes.style,
+    keyboardDismissMode: PropTypes.string,
+    keyboardShouldPersistTaps: PropTypes.string
 }
 
 Dialog.defaultProps = {
