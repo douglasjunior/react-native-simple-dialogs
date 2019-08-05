@@ -29,7 +29,8 @@ import {
     ViewPropTypes,
     TouchableWithoutFeedback,
     Text,
-    Platform
+    Platform,
+    ScrollView
 } from 'react-native'
 const { OS } = Platform;
 
@@ -107,6 +108,7 @@ class Dialog extends Component {
         const {
             dialogStyle, visible, animationType, onRequestClose, onShow,
             onOrientationChange, onTouchOutside, overlayStyle, supportedOrientations,
+            keyboardDismissMode, keyboardShouldPersistTaps,
         } = this.props;
 
         const dialogBackgroundColor = OS === 'ios' ? "#e8e8e8" : "#ffffff";
@@ -122,11 +124,15 @@ class Dialog extends Component {
                 onOrientationChange={onOrientationChange}
                 supportedOrientations={supportedOrientations}
             >
-                <View style={[{
-                    flex: 1,
-                    backgroundColor: "#000000AA",
-                    padding: 24
-                }, overlayStyle]}>
+                <ScrollView
+                    contentContainerStyle={[{
+                        flex: 1,
+                        backgroundColor: "#000000AA",
+                        padding: 24
+                    }, overlayStyle]}
+                    keyboardDismissMode={keyboardDismissMode}
+                    keyboardShouldPersistTaps={keyboardShouldPersistTaps}
+                >
 
                     {this._renderOutsideTouchable(onTouchOutside)}
 
@@ -152,7 +158,7 @@ class Dialog extends Component {
 
                     {this._renderOutsideTouchable(onTouchOutside)}
 
-                </View>
+                </ScrollView>
             </Modal>
         )
     }
