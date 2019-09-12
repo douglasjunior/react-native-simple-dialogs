@@ -125,6 +125,7 @@ class Dialog extends Component {
                 supportedOrientations={supportedOrientations}
             >
                 <ScrollView
+                    bounces={false}
                     style={{
                         flex: 1,
                     }}
