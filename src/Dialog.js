@@ -134,6 +134,7 @@ class Dialog extends Component {
                     }}
                     keyboardDismissMode={keyboardDismissMode}
                     keyboardShouldPersistTaps={keyboardShouldPersistTaps}
+                    contentInsetAdjustmentBehavior="never"
                 >
                     <View style={[{
                         flex: 1,
