@@ -12,3 +12,4 @@ assignees: ''
 - iOS/Android version?
 - Did the problem happen after updating React Native?
 - Are you using the library for the first time?
+- What code snippet did you use?
