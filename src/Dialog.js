@@ -108,7 +108,7 @@ class Dialog extends Component {
         const {
             dialogStyle, visible, animationType, onRequestClose, onShow,
             onOrientationChange, onTouchOutside, overlayStyle, supportedOrientations,
-            keyboardDismissMode, keyboardShouldPersistTaps,
+            keyboardDismissMode, keyboardShouldPersistTaps, contentInsetAdjustmentBehavior,
         } = this.props;
 
         const dialogBackgroundColor = OS === 'ios' ? "#e8e8e8" : "#ffffff";
@@ -134,6 +134,7 @@ class Dialog extends Component {
                     }}
                     keyboardDismissMode={keyboardDismissMode}
                     keyboardShouldPersistTaps={keyboardShouldPersistTaps}
+                    contentInsetAdjustmentBehavior={contentInsetAdjustmentBehavior}
                 >
                     <View style={[{
                         flex: 1,
@@ -183,12 +184,14 @@ Dialog.propTypes = {
     title: PropTypes.string,
     titleStyle: Text.propTypes.style,
     keyboardDismissMode: PropTypes.string,
-    keyboardShouldPersistTaps: PropTypes.string
+    keyboardShouldPersistTaps: PropTypes.string,
+    contentInsetAdjustmentBehavior: PropTypes.string,
 }
 
 Dialog.defaultProps = {
     visible: false,
-    onRequestClose: () => null
+    onRequestClose: () => null,
+    contentInsetAdjustmentBehavior: 'never',
 };
 
 export default Dialog;
