@@ -14,7 +14,7 @@
 
 ## Expo Snack
 An
-[Expo Demo Link](https://snack.expo.io/@incorelabs/react-native-simple-dialogs-example)
+[Expo Demo Link](https://snack.expo.io/@douglasjunior/react-native-simple-dialogs-example)
 
 ## Screenshots
 
