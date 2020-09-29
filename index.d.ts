@@ -43,7 +43,7 @@ declare module 'react-native-simple-dialogs' {
         buttons?: React.ReactNode;
         keyboardDismissMode?: keyboardDismissModeType;
         keyboardShouldPersistTaps?: keyboardShouldPersistTapsType;
-        children: React.ReactNode;
+        contentInsetAdjustmentBehavior?: 'automatic' | 'scrollableAxes' | 'never' | 'always';
     }
 
     export interface ProgressDialogProps extends DialogProps {
