@@ -26,7 +26,7 @@ declare module 'react-native-simple-dialogs' {
 
     type activityIndicatorSizeType = 'small' | 'large' | number;
 
-    export interface DialogProps {
+    export interface BaseProps {
         visible?: boolean;
         onRequestClose?: () => void;
         animationType?: animationType;
@@ -40,13 +40,17 @@ declare module 'react-native-simple-dialogs' {
         contentStyle?: StyleProp<ViewStyle>;
         buttonsStyle?: StyleProp<ViewStyle>;
         overlayStyle?: StyleProp<ViewStyle>;
-        buttons?: React.ReactNode;
+        buttons?: React.ReactNode | React.ReactNode[] | JSX.Element
         keyboardDismissMode?: keyboardDismissModeType;
         keyboardShouldPersistTaps?: keyboardShouldPersistTapsType;
         contentInsetAdjustmentBehavior?: 'automatic' | 'scrollableAxes' | 'never' | 'always';
     }
 
-    export interface ProgressDialogProps extends DialogProps {
+    export interface DialogProps extends BaseProps {
+        children?: React.ReactNode | React.ReactNode[] | JSX.Element
+    }
+
+    export interface ProgressDialogProps extends BaseProps {
         message: string;
         messageStyle?: StyleProp<TextStyle>;
         activityIndicatorColor?: string;
@@ -62,11 +66,12 @@ declare module 'react-native-simple-dialogs' {
         style?: StyleProp<ViewStyle>;
     }
 
-    export interface ConfirmDialogProps extends DialogProps {
+    export interface ConfirmDialogProps extends BaseProps {
         message?: string;
         messageStyle?: StyleProp<TextStyle>;
         negativeButton?: ButtonProps;
         positiveButton: ButtonProps;
+        children?: React.ReactNode | React.ReactNode[] | JSX.Element
     }
 
     export class Dialog extends React.Component<DialogProps> { }
