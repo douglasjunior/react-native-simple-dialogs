@@ -130,7 +130,7 @@ class Dialog extends Component {
                         flex: 1,
                     }}
                     contentContainerStyle={{
-                        flex: 1,
+                        minHeight: '100%',
                     }}
                     keyboardDismissMode={keyboardDismissMode}
                     keyboardShouldPersistTaps={keyboardShouldPersistTaps}
