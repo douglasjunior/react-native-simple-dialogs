@@ -44,6 +44,7 @@ class Dialog extends Component {
         return (
             <View style={[{
                 width: '100%',
+                flex: -1,
                 padding: 24,
                 paddingTop: 20
             }, contentStyle]}>
@@ -146,6 +147,7 @@ class Dialog extends Component {
                         <View style={[{
                             backgroundColor: dialogBackgroundColor,
                             width: '100%',
+                            maxHeight: '100%',
                             shadowOpacity: 0.24,
                             borderRadius: dialogBorderRadius,
                             elevation: 4,
