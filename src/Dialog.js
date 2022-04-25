@@ -44,7 +44,7 @@ class Dialog extends Component {
         return (
             <View style={[{
                 width: '100%',
-                flex: -1,
+                flexShrink: 1,
                 padding: 24,
                 paddingTop: 20
             }, contentStyle]}>
