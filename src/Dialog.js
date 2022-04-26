@@ -30,6 +30,7 @@ import {
     TouchableWithoutFeedback,
     Text,
     Platform,
+    SafeAreaView,
     ScrollView
 } from 'react-native'
 const { OS } = Platform;
@@ -142,30 +143,32 @@ class Dialog extends Component {
                         backgroundColor: "#000000AA",
                         padding: 24
                     }, overlayStyle]}>
-                        {this._renderOutsideTouchable(onTouchOutside)}
+                        <SafeAreaView style={{flex: 1}}>
+                            {this._renderOutsideTouchable(onTouchOutside)}
 
-                        <View style={[{
-                            backgroundColor: dialogBackgroundColor,
-                            width: '100%',
-                            maxHeight: '100%',
-                            shadowOpacity: 0.24,
-                            borderRadius: dialogBorderRadius,
-                            elevation: 4,
-                            shadowOffset: {
-                                height: 4,
-                                width: 2
-                            }
-                        }, dialogStyle]}>
+                            <View style={[{
+                                backgroundColor: dialogBackgroundColor,
+                                width: '100%',
+                                maxHeight: '100%',
+                                shadowOpacity: 0.24,
+                                borderRadius: dialogBorderRadius,
+                                elevation: 4,
+                                shadowOffset: {
+                                    height: 4,
+                                    width: 2
+                                }
+                            }, dialogStyle]}>
 
-                            {this.renderTitle()}
+                                {this.renderTitle()}
 
-                            {this.renderContent()}
+                                {this.renderContent()}
 
-                            {this.renderButtons()}
+                                {this.renderButtons()}
 
-                        </View>
+                            </View>
 
-                        {this._renderOutsideTouchable(onTouchOutside)}
+                            {this._renderOutsideTouchable(onTouchOutside)}
+                        </SafeAreaView>
                     </View>
                 </ScrollView>
             </Modal>
