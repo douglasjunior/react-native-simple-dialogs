@@ -31,5 +31,5 @@ export {
     Dialog,
     ProgressDialog,
     ConfirmDialog,
-    TouchableEffect
+    TouchableEffect,
 }

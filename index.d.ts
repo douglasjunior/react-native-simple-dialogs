@@ -1,38 +1,26 @@
+import * as React from 'react';
+import {
+    StyleProp,
+    ViewStyle,
+    TextStyle,
+    ScrollViewProps,
+    ActivityIndicatorProps,
+    ModalProps,
+    TouchableNativeFeedbackProps,
+    TouchableOpacityProps,
+} from 'react-native';
+
 declare module 'react-native-simple-dialogs' {
-    import * as React from 'react';
-    import {
-        StyleProp,
-        ViewStyle,
-        TextStyle,
-    } from 'react-native';
-
-    type animationType = 'none' | 'slide' | 'fade';
-
-    type supportedOrientationsType =
-        | 'portrait'
-        | 'portrait-upside-down'
-        | 'landscape'
-        | 'landscape-left'
-        | 'landscape-right';
-
-    type keyboardDismissModeType = 'none' | 'on-drag' | 'interactive';
-
-    type keyboardShouldPersistTapsType =
-        | 'always'
-        | 'never'
-        | 'handled'
-        | false
-        | true;
 
     type activityIndicatorSizeType = 'small' | 'large' | number;
 
     export interface BaseProps {
         visible?: boolean;
         onRequestClose?: () => void;
-        animationType?: animationType;
+        animationType?: ModalProps['animationType'];
         onShow?: () => void;
         onOrientationChange?: () => void;
-        supportedOrientations?: supportedOrientationsType[];
+        supportedOrientations?: ModalProps['supportedOrientations'];
         onTouchOutside?: () => void;
         title?: string;
         titleStyle?: StyleProp<TextStyle>;
@@ -41,9 +29,9 @@ declare module 'react-native-simple-dialogs' {
         buttonsStyle?: StyleProp<ViewStyle>;
         overlayStyle?: StyleProp<ViewStyle>;
         buttons?: React.ReactNode | React.ReactNode[] | JSX.Element
-        keyboardDismissMode?: keyboardDismissModeType;
-        keyboardShouldPersistTaps?: keyboardShouldPersistTapsType;
-        contentInsetAdjustmentBehavior?: 'automatic' | 'scrollableAxes' | 'never' | 'always';
+        keyboardDismissMode?: ScrollViewProps['keyboardDismissMode'];
+        keyboardShouldPersistTaps?: ScrollViewProps['keyboardShouldPersistTaps'];
+        contentInsetAdjustmentBehavior?: ScrollViewProps['contentInsetAdjustmentBehavior'];
     }
 
     export interface DialogProps extends BaseProps {
@@ -53,9 +41,9 @@ declare module 'react-native-simple-dialogs' {
     export interface ProgressDialogProps extends BaseProps {
         message: string;
         messageStyle?: StyleProp<TextStyle>;
-        activityIndicatorColor?: string;
-        activityIndicatorSize?: activityIndicatorSizeType;
-        activityIndicatorStyle?: StyleProp<ViewStyle>;
+        activityIndicatorColor?: ActivityIndicatorProps['color'];
+        activityIndicatorSize?: ActivityIndicatorProps['size'];
+        activityIndicatorStyle?: ActivityIndicatorProps['style'];
     }
 
     export interface ButtonProps {
@@ -75,7 +63,10 @@ declare module 'react-native-simple-dialogs' {
     }
 
     export class Dialog extends React.Component<DialogProps> { }
+
     export class ProgressDialog extends React.Component<ProgressDialogProps> { }
+
     export class ConfirmDialog extends React.Component<ConfirmDialogProps> { }
-    export class TouchableEffect extends React.Component<Props> { }
+
+    export declare const TouchableEffect: React.FC<TouchableNativeFeedbackProps & TouchableOpacityProps>;
 }

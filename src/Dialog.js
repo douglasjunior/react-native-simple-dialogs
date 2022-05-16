@@ -26,16 +26,14 @@ import React, { Component } from 'react'
 import {
     Modal,
     View,
-    ViewPropTypes,
     TouchableWithoutFeedback,
     Text,
     Platform,
     SafeAreaView,
     ScrollView
 } from 'react-native'
-const { OS } = Platform;
 
-import PropTypes from 'prop-types';
+const { OS } = Platform;
 
 class Dialog extends Component {
 
@@ -143,7 +141,7 @@ class Dialog extends Component {
                         backgroundColor: "#000000AA",
                         padding: 24
                     }, overlayStyle]}>
-                        <SafeAreaView style={{flex: 1}}>
+                        <SafeAreaView style={{ flex: 1 }}>
                             {this._renderOutsideTouchable(onTouchOutside)}
 
                             <View style={[{
@@ -174,23 +172,6 @@ class Dialog extends Component {
             </Modal>
         )
     }
-}
-
-Dialog.propTypes = {
-    dialogStyle: ViewPropTypes.style,
-    contentStyle: ViewPropTypes.style,
-    buttonsStyle: ViewPropTypes.style,
-    overlayStyle: ViewPropTypes.style,
-    buttons: PropTypes.element,
-    visible: PropTypes.bool,
-    onRequestClose: PropTypes.func,
-    onShow: PropTypes.func,
-    onTouchOutside: PropTypes.func,
-    title: PropTypes.string,
-    titleStyle: Text.propTypes.style,
-    keyboardDismissMode: PropTypes.string,
-    keyboardShouldPersistTaps: PropTypes.string,
-    contentInsetAdjustmentBehavior: PropTypes.string,
 }
 
 Dialog.defaultProps = {

@@ -23,12 +23,10 @@
 */
 
 import React, { Component } from 'react'
-import PropTypes from 'prop-types';
 import {
     View,
     ActivityIndicator,
     Text,
-    ViewPropTypes
 } from 'react-native';
 
 import Dialog from './Dialog'
@@ -49,19 +47,5 @@ class ProgressDialog extends Component {
         )
     }
 }
-
-ProgressDialog.propTypes = {
-    ...Dialog.propTypes,
-    message: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
-    messageStyle: Text.propTypes.style,
-    activityIndicatorColor: PropTypes.string,
-    activityIndicatorSize: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number
-    ]),
-    activityIndicatorStyle: ViewPropTypes.style
-}
-
-delete ProgressDialog.propTypes.children;
 
 export default ProgressDialog

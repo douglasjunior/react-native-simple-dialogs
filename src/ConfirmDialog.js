@@ -25,13 +25,10 @@
 import React, { Component } from 'react'
 import {
     View,
-    ViewPropTypes,
     Text,
     Platform
 } from 'react-native'
 const { OS } = Platform;
-
-import PropTypes from 'prop-types';
 
 import Dialog from './Dialog'
 import TouchableEffect from './TouchableEffect';
@@ -160,28 +157,6 @@ class ConfirmDialog extends Component {
             </Dialog>
         )
     }
-}
-
-const buttonPropType = PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    onPress: PropTypes.func.isRequired,
-    disabled: PropTypes.bool,
-    titleStyle: PropTypes.shape({
-        ...Text.propTypes.style,
-        colorDisabled: PropTypes.string,
-    }),
-    style: PropTypes.shape({
-        ...ViewPropTypes.style,
-        backgroundColorDisabled: PropTypes.string,
-    })
-});
-
-ConfirmDialog.propTypes = {
-    ...Dialog.propTypes,
-    message: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    messageStyle: Text.propTypes.style,
-    negativeButton: buttonPropType,
-    positiveButton: buttonPropType.isRequired
 }
 
 export default ConfirmDialog
