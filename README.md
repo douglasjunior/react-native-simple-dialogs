@@ -170,6 +170,10 @@ New features, bug fixes and improvements are welcome! For questions and suggesti
 <a href="https://www.patreon.com/douglasjunior"><img src="http://i.imgur.com/xEO164Z.png" alt="Become a Patron!" width="200" /></a>
 [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=E32BUP77SVBA2)
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=douglasjunior/react-native-simple-dialogs&type=Date)](https://star-history.com/#douglasjunior/react-native-simple-dialogs)
+
 ## Licence
 
 ```
