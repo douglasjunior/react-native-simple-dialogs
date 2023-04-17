@@ -1,7 +1,7 @@
 {
 	"name": "react-native-simple-dialogs",
-	"version": "1.5.0",
-	"description": "Cross-platform simple dialogs for React Native based on the Modal component. ⚛",
+	"version": "2.0.0",
+	"description": "⚛ Cross-platform simple dialogs for React Native based on the Modal component.",
 	"private": false,
 	"repository": {
 		"type": "git",
@@ -13,7 +13,9 @@
 		"ios",
 		"dialog",
 		"modal",
-		"popup"
+		"popup",
+    "confirm",
+    "progress"
 	],
 	"author": "Douglas Nassif Roma Junior",
 	"license": "MIT",
@@ -21,17 +23,31 @@
 		"url": "https://github.com/douglasjunior/react-native-simple-dialogs/issues"
 	},
 	"homepage": "https://github.com/douglasjunior/react-native-simple-dialogs",
-	"main": "index.js",
-	"scripts": {
-		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"test": "jest"
-	},
-	"dependencies": {},
-	"devDependencies": {
-		"react": "16.4.1",
-		"react-native": "0.56.0"
-	},
-	"peerDependencies": {
-		"react-native": ">=0.44"
-	}
+	"main": "src",
+  "scripts": {
+    "build": "tsc",
+    "publish-script": "node scripts/publish.js"
+  },
+  "peerDependencies": {
+    "react-native": ">=0.44"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0",
+    "@babel/preset-env": "^7.20.0",
+    "@babel/runtime": "^7.20.0",
+    "@react-native-community/eslint-config": "^3.2.0",
+    "@tsconfig/react-native": "^2.0.2",
+    "@types/jest": "^29.2.1",
+    "@types/react": "^18.0.24",
+    "@types/react-test-renderer": "^18.0.0",
+    "babel-jest": "^29.2.1",
+    "eslint": "^8.19.0",
+    "jest": "^29.2.1",
+    "metro-react-native-babel-preset": "0.73.8",
+    "prettier": "^2.4.1",
+    "react": "18.2.0",
+    "react-native": "0.71.4",
+    "react-test-renderer": "18.2.0",
+    "typescript": "4.8.4"
+  }
 }

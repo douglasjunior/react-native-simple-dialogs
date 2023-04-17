@@ -23,15 +23,8 @@
  */
 
 import React, {Component} from 'react';
-import {
-  Alert,
-  AppRegistry,
-  Button,
-  Image,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {Alert, Button, Image, StyleSheet, Text, View} from 'react-native';
+
 import {
   Dialog,
   ProgressDialog,
@@ -64,13 +57,17 @@ const styles = StyleSheet.create({
 });
 
 export default class App extends Component {
-  state = {};
+  state = {
+    showDialog: false,
+    showConfirm: false,
+    showProgress: false,
+  };
 
-  openDialog = show => {
+  openDialog = (show: boolean) => {
     this.setState({showDialog: show});
   };
 
-  openConfirm = show => {
+  openConfirm = (show: boolean) => {
     this.setState({showConfirm: show});
   };
 
@@ -84,6 +81,7 @@ export default class App extends Component {
 
   optionYes = () => {
     this.openConfirm(false);
+
     // Yes, this is a workaround :(
     // Why? See this https://github.com/facebook/react-native/issues/10471
     setTimeout(() => {
@@ -93,6 +91,7 @@ export default class App extends Component {
 
   optionNo = () => {
     this.openConfirm(false);
+
     // Yes, this is a workaround :(
     // Why? See this https://github.com/facebook/react-native/issues/10471
     setTimeout(() => {
@@ -146,11 +145,7 @@ export default class App extends Component {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </Text>
-          <Button
-            onPress={() => this.openDialog(false)}
-            style={{marginTop: 10}}
-            title="CLOSE"
-          />
+          <Button onPress={() => this.openDialog(false)} title="CLOSE" />
         </Dialog>
 
         <ConfirmDialog
@@ -189,5 +184,3 @@ export default class App extends Component {
     );
   }
 }
-
-AppRegistry.registerComponent('Sample', () => App);
