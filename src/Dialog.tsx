@@ -56,6 +56,7 @@ export type DialogPropsType = {
   onTouchOutside?: () => void;
   overlayStyle?: StyleProp<ViewStyle>;
   supportedOrientations?: ModalProps['supportedOrientations'];
+  statusBarTranslucent?: ModalProps['statusBarTranslucent'];
   keyboardDismissMode?: ScrollViewProps['keyboardDismissMode'];
   keyboardShouldPersistTaps?: ScrollViewProps['keyboardShouldPersistTaps'];
   contentInsetAdjustmentBehavior: ScrollViewProps['contentInsetAdjustmentBehavior'];
@@ -77,6 +78,7 @@ const Dialog = ({
   onTouchOutside,
   overlayStyle,
   supportedOrientations,
+  statusBarTranslucent,
   keyboardDismissMode,
   keyboardShouldPersistTaps,
   contentInsetAdjustmentBehavior,
@@ -164,7 +166,8 @@ const Dialog = ({
       onRequestClose={onRequestClose}
       onShow={onShow}
       onOrientationChange={onOrientationChange}
-      supportedOrientations={supportedOrientations}>
+      supportedOrientations={supportedOrientations}
+      statusBarTranslucent={statusBarTranslucent}>
       <ScrollView
         bounces={false}
         style={{
