@@ -41,7 +41,7 @@ const {OS} = Platform;
 const DEFAULT_COLOR_BUTTON = '#0000FF99';
 const DEFAULT_BACKGROUND_COLOR_BUTTON = 'transparent';
 
-type ConfirmDialogButtonPropsType = {
+export type ConfirmDialogButtonPropsType = {
   title: string;
   onPress: () => void;
   disabled?: boolean;

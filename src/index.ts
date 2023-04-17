@@ -29,7 +29,10 @@ export {default as ProgressDialog} from './ProgressDialog';
 export type {ProgressDialogPropsType} from './ProgressDialog';
 
 export {default as ConfirmDialog} from './ConfirmDialog';
-export type {ConfirmDialogPropsType} from './ConfirmDialog';
+export type {
+  ConfirmDialogPropsType,
+  ConfirmDialogButtonPropsType,
+} from './ConfirmDialog';
 
 export {default as TouchableEffect} from './TouchableEffect';
 export type {TouchableEffectPropsType} from './TouchableEffect';
