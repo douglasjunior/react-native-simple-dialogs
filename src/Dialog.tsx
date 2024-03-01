@@ -41,6 +41,7 @@ import {
 const {OS} = Platform;
 
 export type DialogPropsType = {
+  testID?: string;
   children?: React.ReactNode | React.ReactNode[];
   contentStyle?: StyleProp<ViewStyle>;
   title?: string;
@@ -63,6 +64,7 @@ export type DialogPropsType = {
 };
 
 const Dialog = ({
+  testID,
   children,
   contentStyle,
   title,
@@ -160,6 +162,7 @@ const Dialog = ({
 
   return (
     <Modal
+      testID={testID}
       animationType={animationType}
       transparent={true}
       visible={visible}
