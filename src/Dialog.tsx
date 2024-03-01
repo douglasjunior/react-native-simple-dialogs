@@ -58,6 +58,16 @@ export type DialogPropsType = {
   overlayStyle?: StyleProp<ViewStyle>;
   supportedOrientations?: ModalProps['supportedOrientations'];
   statusBarTranslucent?: ModalProps['statusBarTranslucent'];
+  accessible?: ModalProps['accessible'];
+  accessibilityActions?: ModalProps['accessibilityActions'];
+  accessibilityLabel?: ModalProps['accessibilityLabel'];
+  accessibilityRole?: ModalProps['accessibilityRole'];
+  accessibilityState?: ModalProps['accessibilityState'];
+  accessibilityHint?: ModalProps['accessibilityHint'];
+  accessibilityValue?: ModalProps['accessibilityValue'];
+  onAccessibilityAction?: ModalProps['onAccessibilityAction'];
+  importantForAccessibility?: ModalProps['importantForAccessibility'];
+  role?: ModalProps['role'];
   keyboardDismissMode?: ScrollViewProps['keyboardDismissMode'];
   keyboardShouldPersistTaps?: ScrollViewProps['keyboardShouldPersistTaps'];
   contentInsetAdjustmentBehavior: ScrollViewProps['contentInsetAdjustmentBehavior'];
@@ -65,6 +75,16 @@ export type DialogPropsType = {
 
 const Dialog = ({
   testID,
+  accessible,
+  accessibilityActions,
+  accessibilityLabel,
+  accessibilityRole,
+  accessibilityState,
+  accessibilityHint,
+  accessibilityValue,
+  onAccessibilityAction,
+  importantForAccessibility,
+  role,
   children,
   contentStyle,
   title,
@@ -163,6 +183,16 @@ const Dialog = ({
   return (
     <Modal
       testID={testID}
+      accessible={accessible}
+      accessibilityActions={accessibilityActions}
+      accessibilityLabel={accessibilityLabel}
+      accessibilityRole={accessibilityRole}
+      accessibilityState={accessibilityState}
+      accessibilityHint={accessibilityHint}
+      accessibilityValue={accessibilityValue}
+      onAccessibilityAction={onAccessibilityAction}
+      importantForAccessibility={importantForAccessibility}
+      role={role}
       animationType={animationType}
       transparent={true}
       visible={visible}
