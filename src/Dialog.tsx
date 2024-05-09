@@ -86,7 +86,7 @@ const Dialog = ({
   importantForAccessibility,
   role,
   children,
-  contentStyle,
+  contentStyle = {padding: 24,paddingTop: 20},
   title,
   titleStyle,
   buttons,
@@ -112,8 +112,6 @@ const Dialog = ({
           {
             width: '100%',
             flexShrink: 1,
-            padding: 24,
-            paddingTop: 20,
           },
           contentStyle,
         ]}>
