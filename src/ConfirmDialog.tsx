@@ -33,7 +33,7 @@ import {
   StyleSheet,
 } from 'react-native';
 
-import Dialog, {DialogPropsType} from './Dialog';
+import Dialog, {DialogPropsType, dialogDefaultProps} from './Dialog';
 import TouchableEffect from './TouchableEffect';
 
 const {OS} = Platform;
@@ -167,14 +167,19 @@ const getButtonTextStyle = (
   });
 };
 
-const ConfirmDialog = ({
-  children,
-  negativeButton,
-  positiveButton,
-  message,
-  messageStyle,
-  ...others
-}: ConfirmDialogPropsType): JSX.Element => {
+const ConfirmDialog = (props: ConfirmDialogPropsType): JSX.Element => {
+  const {
+    children,
+    negativeButton,
+    positiveButton,
+    message,
+    messageStyle,
+    ...others
+  } = {
+    ...dialogDefaultProps,
+    ...props,
+  };
+
   const renderMessage = () => {
     if (!message) {
       return null;
@@ -257,10 +262,6 @@ const ConfirmDialog = ({
       {renderContent()}
     </Dialog>
   );
-};
-
-ConfirmDialog.defaultProps = {
-  ...Dialog.defaultProps,
 };
 
 export default ConfirmDialog;
