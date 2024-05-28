@@ -40,7 +40,7 @@ import {
 
 const {OS} = Platform;
 
-export const dialogDefaultProps = {
+export const dialogDefaultProps: DialogPropsType = {
   visible: false,
   onRequestClose: () => null,
   contentInsetAdjustmentBehavior: 'never',
