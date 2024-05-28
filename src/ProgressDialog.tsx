@@ -32,7 +32,7 @@ import {
   ActivityIndicatorProps,
 } from 'react-native';
 
-import Dialog, {DialogPropsType} from './Dialog';
+import Dialog, {DialogPropsType, dialogDefaultProps} from './Dialog';
 
 export type ProgressDialogPropsType = DialogPropsType & {
   message?: React.ReactNode;
@@ -42,14 +42,19 @@ export type ProgressDialogPropsType = DialogPropsType & {
   activityIndicatorStyle?: ActivityIndicatorProps['style'];
 };
 
-const ProgressDialog = ({
-  message,
-  messageStyle,
-  activityIndicatorColor,
-  activityIndicatorSize,
-  activityIndicatorStyle,
-  ...others
-}: ProgressDialogPropsType): JSX.Element => {
+const ProgressDialog = (props: ProgressDialogPropsType): JSX.Element => {
+  const {
+    message,
+    messageStyle,
+    activityIndicatorColor,
+    activityIndicatorSize,
+    activityIndicatorStyle,
+    ...others
+  } = {
+    ...dialogDefaultProps,
+    ...props,
+  };
+
   return (
     <Dialog {...others}>
       <View style={{flexDirection: 'row', alignItems: 'center'}}>
@@ -69,10 +74,6 @@ const ProgressDialog = ({
       </View>
     </Dialog>
   );
-};
-
-ProgressDialog.defaultProps = {
-  ...Dialog.defaultProps,
 };
 
 export default ProgressDialog;

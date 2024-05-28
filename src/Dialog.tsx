@@ -40,6 +40,12 @@ import {
 
 const {OS} = Platform;
 
+export const dialogDefaultProps = {
+  visible: false,
+  onRequestClose: () => null,
+  contentInsetAdjustmentBehavior: 'never',
+};
+
 export type DialogPropsType = {
   testID?: string;
   children?: React.ReactNode | React.ReactNode[];
@@ -73,38 +79,43 @@ export type DialogPropsType = {
   contentInsetAdjustmentBehavior: ScrollViewProps['contentInsetAdjustmentBehavior'];
 };
 
-const Dialog = ({
-  testID,
-  accessible,
-  accessibilityActions,
-  accessibilityLabel,
-  accessibilityRole,
-  accessibilityState,
-  accessibilityHint,
-  accessibilityValue,
-  onAccessibilityAction,
-  importantForAccessibility,
-  role,
-  children,
-  contentStyle,
-  title,
-  titleStyle,
-  buttons,
-  buttonsStyle,
-  dialogStyle,
-  visible,
-  animationType,
-  onRequestClose,
-  onShow,
-  onOrientationChange,
-  onTouchOutside,
-  overlayStyle,
-  supportedOrientations,
-  statusBarTranslucent,
-  keyboardDismissMode,
-  keyboardShouldPersistTaps,
-  contentInsetAdjustmentBehavior,
-}: DialogPropsType): JSX.Element => {
+const Dialog = (props: DialogPropsType): JSX.Element => {
+  const {
+    testID,
+    accessible,
+    accessibilityActions,
+    accessibilityLabel,
+    accessibilityRole,
+    accessibilityState,
+    accessibilityHint,
+    accessibilityValue,
+    onAccessibilityAction,
+    importantForAccessibility,
+    role,
+    children,
+    contentStyle,
+    title,
+    titleStyle,
+    buttons,
+    buttonsStyle,
+    dialogStyle,
+    visible,
+    animationType,
+    onRequestClose,
+    onShow,
+    onOrientationChange,
+    onTouchOutside,
+    overlayStyle,
+    supportedOrientations,
+    statusBarTranslucent,
+    keyboardDismissMode,
+    keyboardShouldPersistTaps,
+    contentInsetAdjustmentBehavior,
+  } = {
+    ...dialogDefaultProps,
+    ...props,
+  };
+
   const renderContent = () => {
     return (
       <View
@@ -253,12 +264,6 @@ const Dialog = ({
       </ScrollView>
     </Modal>
   );
-};
-
-Dialog.defaultProps = {
-  visible: false,
-  onRequestClose: () => null,
-  contentInsetAdjustmentBehavior: 'never',
 };
 
 export default Dialog;
