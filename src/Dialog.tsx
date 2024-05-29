@@ -41,9 +41,9 @@ import {
 const {OS} = Platform;
 
 export const dialogDefaultProps: DialogPropsType = {
-  visible: false,
-  onRequestClose: () => null,
-  contentInsetAdjustmentBehavior: 'never',
+  visible?: false,
+  onRequestClose?: () => null,
+  contentInsetAdjustmentBehavior?: 'never',
 };
 
 export type DialogPropsType = {
