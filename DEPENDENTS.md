@@ -7,12 +7,12 @@
 
 | Repository | Stars  |
 | :--------  | -----: |
-|<img class="avatar mr-2" src="https://avatars.githubusercontent.com/u/21323483?s=40&v=4" width="20" height="20" alt="">  &nbsp; [bailabs](https://github.com/bailabs) / [tailpos](https://github.com/bailabs/tailpos) | 439 |
+|<img class="avatar mr-2" src="https://avatars.githubusercontent.com/u/21323483?s=40&v=4" width="20" height="20" alt="">  &nbsp; [bailabs](https://github.com/bailabs) / [tailpos](https://github.com/bailabs/tailpos) | 442 |
 |<img class="avatar mr-2" src="https://avatars.githubusercontent.com/u/1512341?s=40&v=4" width="20" height="20" alt="">  &nbsp; [douglasjunior](https://github.com/douglasjunior) / [react-native-simple-dialogs](https://github.com/douglasjunior/react-native-simple-dialogs) | 311 |
 |<img class="avatar mr-2" src="https://avatars.githubusercontent.com/u/14280899?s=40&v=4" width="20" height="20" alt="">  &nbsp; [martymfly](https://github.com/martymfly) / [expo-file-manager](https://github.com/martymfly/expo-file-manager) | 160 |
-|<img class="avatar mr-2" src="https://avatars.githubusercontent.com/u/29435250?s=40&v=4" width="20" height="20" alt="">  &nbsp; [Syntax00](https://github.com/Syntax00) / [react-native-just-timeline](https://github.com/Syntax00/react-native-just-timeline) | 149 |
+|<img class="avatar mr-2" src="https://avatars.githubusercontent.com/u/29435250?s=40&v=4" width="20" height="20" alt="">  &nbsp; [Syntax00](https://github.com/Syntax00) / [react-native-just-timeline](https://github.com/Syntax00/react-native-just-timeline) | 150 |
 |<img class="avatar mr-2" src="https://avatars.githubusercontent.com/u/30803427?s=40&v=4" width="20" height="20" alt="">  &nbsp; [internxt](https://github.com/internxt) / [drive-mobile](https://github.com/internxt/drive-mobile) | 89 |
-|<img class="avatar mr-2" src="https://avatars.githubusercontent.com/u/1788045?s=40&v=4" width="20" height="20" alt="">  &nbsp; [zGrav](https://github.com/zGrav) / [xtream-iptv-player-reactnative](https://github.com/zGrav/xtream-iptv-player-reactnative) | 54 |
+|<img class="avatar mr-2" src="https://avatars.githubusercontent.com/u/1788045?s=40&v=4" width="20" height="20" alt="">  &nbsp; [zGrav](https://github.com/zGrav) / [xtream-iptv-player-reactnative](https://github.com/zGrav/xtream-iptv-player-reactnative) | 55 |
 |<img class="avatar mr-2" src="https://avatars.githubusercontent.com/u/8449745?s=40&v=4" width="20" height="20" alt="">  &nbsp; [Bit-Nation](https://github.com/Bit-Nation) / [BITNATION-Pangea-mobile](https://github.com/Bit-Nation/BITNATION-Pangea-mobile) | 52 |
 |<img class="avatar mr-2" src="https://avatars.githubusercontent.com/u/35385423?s=40&v=4" width="20" height="20" alt="">  &nbsp; [OurVoiceUSA](https://github.com/OurVoiceUSA) / [HelloVoter](https://github.com/OurVoiceUSA/HelloVoter) | 34 |
 |<img class="avatar mr-2" src="https://avatars.githubusercontent.com/u/11146636?s=40&v=4" width="20" height="20" alt="">  &nbsp; [simbadMarino](https://github.com/simbadMarino) / [dCloud](https://github.com/simbadMarino/dCloud) | 28 |
