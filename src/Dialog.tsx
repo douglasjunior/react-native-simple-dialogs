@@ -29,7 +29,6 @@ import {
   TouchableWithoutFeedback,
   Text,
   Platform,
-  SafeAreaView,
   ScrollView,
   StyleProp,
   ViewStyle,
@@ -232,34 +231,32 @@ const Dialog = (props: DialogPropsType): JSX.Element => {
             },
             overlayStyle,
           ]}>
-          <SafeAreaView style={{flex: 1}}>
-            {renderOutsideTouchable()}
+          {renderOutsideTouchable()}
 
-            <View
-              style={[
-                {
-                  backgroundColor: dialogBackgroundColor,
-                  width: '100%',
-                  maxHeight: '100%',
-                  shadowOpacity: 0.24,
-                  borderRadius: dialogBorderRadius,
-                  elevation: 4,
-                  shadowOffset: {
-                    height: 4,
-                    width: 2,
-                  },
+          <View
+            style={[
+              {
+                backgroundColor: dialogBackgroundColor,
+                width: '100%',
+                maxHeight: '100%',
+                shadowOpacity: 0.24,
+                borderRadius: dialogBorderRadius,
+                elevation: 4,
+                shadowOffset: {
+                  height: 4,
+                  width: 2,
                 },
-                dialogStyle,
-              ]}>
-              {renderTitle()}
+              },
+              dialogStyle,
+            ]}>
+            {renderTitle()}
 
-              {renderContent()}
+            {renderContent()}
 
-              {renderButtons()}
-            </View>
+            {renderButtons()}
+          </View>
 
-            {renderOutsideTouchable()}
-          </SafeAreaView>
+          {renderOutsideTouchable()}
         </View>
       </ScrollView>
     </Modal>
