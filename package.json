@@ -23,6 +23,9 @@
 		"url": "https://github.com/douglasjunior/react-native-simple-dialogs/issues"
 	},
 	"homepage": "https://github.com/douglasjunior/react-native-simple-dialogs",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
 	"main": "src",
   "scripts": {
     "build": "tsc",
