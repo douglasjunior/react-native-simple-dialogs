@@ -71,7 +71,7 @@ import { Dialog } from 'react-native-simple-dialogs';
 | onShow                      | Function                                                                                            | null       | Callback that's called once the modal has been shown                                                                                                        |
 | onOrientationChange         | Function                                                                                            | null       | Callback that's called when the orientation change while the modal is being displayed on iOS                                                                |
 | supportedOrientations       | Array of Enum('portrait', 'portrait-upside-down', 'landscape', 'landscape-left', 'landscape-right') | 'portrait' | Allowed orientation while modals is being shown. More info at [react-native docs](https://facebook.github.io/react-native/docs/modal#supportedorientations) |
-| statusBarTranslucent        | Boolean                                                                                             | null       | Determines whether your modal should go under the system statusbar. More info at [react-native docs](https://facebook.github.io/react-native/docs/modal#statusbartranslucent-android) |
+| statusBarTranslucent        | Boolean                                                                                             | null       | Determines whether your modal should go under the system statusbar. More info at [react-native docs](https://facebook.github.io/react-native/docs/modal#statusbartranslucent-android). |
 | onTouchOutside              | Function                                                                                            | null       | Callbac that's called when users tap outside the shown modal                                                                                                |
 | title                       | String                                                                                              | null       | Modal's title                                                                                                                                               |
 | titleStyle                  | [Text StyleSheet](https://facebook.github.io/react-native/docs/text-style-props)                    | null       | Custom text style object for modal's title                                                                                                                  |
@@ -79,9 +79,10 @@ import { Dialog } from 'react-native-simple-dialogs';
 | contentStyle                | [View StyleSheet](https://facebook.github.io/react-native/docs/view-style-props)                    | null       | Custom view style for dialog content wrapper                                                                                                                |
 | buttonsStyle                | [View StyleSheet](https://facebook.github.io/react-native/docs/view-style-props)                    | null       | Custom view style for dialog button wrapper                                                                                                                 |
 | overlayStyle                | [View StyleSheet](https://facebook.github.io/react-native/docs/view-style-props)                    | null       | Custom view style for dialog overlay                                                                                                                        |
-| buttons                     | React Node                                                                                     | null       | Modal button component                                                                                                                                      |
+| buttons                     | React Node                                                                                          | null       | Modal button component                                                                                                                                      |
 | keyboardDismissMode         | Enum('none', 'on-drag', 'interactive')                                                              | null       | [Determines whether the keyboard gets dismissed in response to a drag.](https://facebook.github.io/react-native/docs/scrollview#keyboarddismissmode)        |
 | keyboardShouldPersistTaps   | Enum('always', 'never', 'handled', false, true)                                                     | null       | [Determines when the keyboard should stay visible after a tap.](https://facebook.github.io/react-native/docs/scrollview#keyboardshouldpersisttaps)          |
+| safeAreaInsets              | Object{top: number, bottom: number, left: number, right: number}                                    | null       | Insets to apply to the dialog to avoid notches and other screen insets. [Can be used with react-native-safe-area-context](https://github.com/AppAndFlow/react-native-safe-area-context). |
 
 ### Confirm Dialog
 
@@ -161,6 +162,29 @@ import { ProgressDialog } from 'react-native-simple-dialogs';
 | activityIndicatorColor | color                                                                            | null         | The foreground color of the spinner                     |
 | activityIndicatorSize  | enum('small', 'large'), number                                                   | null         | Size of the indicator. Number only supported on Android |
 | activityIndicatorStyle | [View StyleSheet](https://facebook.github.io/react-native/docs/view-style-props) | null         | Custom style for the activity indicator                 |
+
+### Safe Area
+
+Due to RN SafeAreaView deprecation, the Dialog component now accepts a `safeAreaInsets` prop to handle notches and screen insets.
+
+You can use it like this:
+
+```jsx
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Dialog } from 'react-native-simple-dialogs';
+
+const insets = useSafeAreaInsets();
+
+<Dialog
+    visible={this.state.dialogVisible}
+    title="Custom Dialog"
+    safeAreaInsets={insets}
+    onTouchOutside={() => this.setState({dialogVisible: false})} >
+    <View>
+        // your content here
+    </View>
+</Dialog>
+```
 
 More info on the [sample project](https://github.com/douglasjunior/react-native-simple-dialogs/blob/master/Sample/src/App.js).
 

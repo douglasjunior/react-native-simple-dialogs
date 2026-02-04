@@ -23,7 +23,7 @@
  */
 
 export {default as Dialog} from './Dialog';
-export type {DialogPropsType} from './Dialog';
+export type {DialogPropsType, EdgeInsets} from './Dialog';
 
 export {default as ProgressDialog} from './ProgressDialog';
 export type {ProgressDialogPropsType} from './ProgressDialog';

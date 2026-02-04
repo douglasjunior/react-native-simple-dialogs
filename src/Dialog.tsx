@@ -29,7 +29,6 @@ import {
   TouchableWithoutFeedback,
   Text,
   Platform,
-  SafeAreaView,
   ScrollView,
   StyleProp,
   ViewStyle,
@@ -40,11 +39,20 @@ import {
 
 const {OS} = Platform;
 
+const DEFAULT_OVERLAY_PADDING = 24;
+
 export const dialogDefaultProps: DialogPropsType = {
   visible: false,
   onRequestClose: () => null,
   contentInsetAdjustmentBehavior: 'never',
 };
+
+export interface EdgeInsets {
+  top: number;
+  right: number;
+  bottom: number;
+  left: number;
+}
 
 export type DialogPropsType = {
   testID?: string;
@@ -57,7 +65,7 @@ export type DialogPropsType = {
   dialogStyle?: StyleProp<ViewStyle>;
   visible: boolean;
   animationType?: ModalProps['animationType'];
-  onRequestClose: () => void;
+  onRequestClose?: () => void;
   onShow?: () => void;
   onOrientationChange?: () => void;
   onTouchOutside?: () => void;
@@ -76,7 +84,14 @@ export type DialogPropsType = {
   role?: ModalProps['role'];
   keyboardDismissMode?: ScrollViewProps['keyboardDismissMode'];
   keyboardShouldPersistTaps?: ScrollViewProps['keyboardShouldPersistTaps'];
-  contentInsetAdjustmentBehavior: ScrollViewProps['contentInsetAdjustmentBehavior'];
+  contentInsetAdjustmentBehavior?: ScrollViewProps['contentInsetAdjustmentBehavior'];
+  safeAreaInsets?: EdgeInsets;
+};
+
+const applySafeAreaInset = (inset?: number): number => {
+  return typeof inset === 'number'
+    ? inset + DEFAULT_OVERLAY_PADDING
+    : DEFAULT_OVERLAY_PADDING;
 };
 
 const Dialog = (props: DialogPropsType): JSX.Element => {
@@ -111,6 +126,7 @@ const Dialog = (props: DialogPropsType): JSX.Element => {
     keyboardDismissMode,
     keyboardShouldPersistTaps,
     contentInsetAdjustmentBehavior,
+    safeAreaInsets,
   } = {
     ...dialogDefaultProps,
     ...props,
@@ -228,38 +244,39 @@ const Dialog = (props: DialogPropsType): JSX.Element => {
             {
               flex: 1,
               backgroundColor: '#000000AA',
-              padding: 24,
+              paddingTop: applySafeAreaInset(safeAreaInsets?.top),
+              paddingBottom: applySafeAreaInset(safeAreaInsets?.bottom),
+              paddingLeft: applySafeAreaInset(safeAreaInsets?.left),
+              paddingRight: applySafeAreaInset(safeAreaInsets?.right),
             },
             overlayStyle,
           ]}>
-          <SafeAreaView style={{flex: 1}}>
-            {renderOutsideTouchable()}
+          {renderOutsideTouchable()}
 
-            <View
-              style={[
-                {
-                  backgroundColor: dialogBackgroundColor,
-                  width: '100%',
-                  maxHeight: '100%',
-                  shadowOpacity: 0.24,
-                  borderRadius: dialogBorderRadius,
-                  elevation: 4,
-                  shadowOffset: {
-                    height: 4,
-                    width: 2,
-                  },
+          <View
+            style={[
+              {
+                backgroundColor: dialogBackgroundColor,
+                width: '100%',
+                maxHeight: '100%',
+                shadowOpacity: 0.24,
+                borderRadius: dialogBorderRadius,
+                elevation: 4,
+                shadowOffset: {
+                  height: 4,
+                  width: 2,
                 },
-                dialogStyle,
-              ]}>
-              {renderTitle()}
+              },
+              dialogStyle,
+            ]}>
+            {renderTitle()}
 
-              {renderContent()}
+            {renderContent()}
 
-              {renderButtons()}
-            </View>
+            {renderButtons()}
+          </View>
 
-            {renderOutsideTouchable()}
-          </SafeAreaView>
+          {renderOutsideTouchable()}
         </View>
       </ScrollView>
     </Modal>

@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import {Alert, Button, Image, StyleSheet, Text, View} from 'react-native';
 
 import {
@@ -30,6 +30,7 @@ import {
   ProgressDialog,
   ConfirmDialog,
 } from 'react-native-simple-dialogs';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 const styles = StyleSheet.create({
   container: {
@@ -56,31 +57,31 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class App extends Component {
-  state = {
-    showDialog: false,
-    showConfirm: false,
-    showProgress: false,
+export default function App() {
+  const insets = useSafeAreaInsets();
+
+  const [showDialog, setShowDialog] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
+  const [showProgress, setShowProgress] = useState(false);
+
+  const openDialog = (show: boolean) => {
+    setShowDialog(show);
   };
 
-  openDialog = (show: boolean) => {
-    this.setState({showDialog: show});
+  const openConfirm = (show: boolean) => {
+    setShowConfirm(show);
   };
 
-  openConfirm = (show: boolean) => {
-    this.setState({showConfirm: show});
-  };
-
-  openProgress = () => {
-    this.setState({showProgress: true});
+  const openProgress = () => {
+    setShowProgress(true);
 
     setTimeout(() => {
-      this.setState({showProgress: false});
+      setShowProgress(false);
     }, 4000);
   };
 
-  optionYes = () => {
-    this.openConfirm(false);
+  const optionYes = () => {
+    openConfirm(false);
 
     // Yes, this is a workaround :(
     // Why? See this https://github.com/facebook/react-native/issues/10471
@@ -89,8 +90,8 @@ export default class App extends Component {
     }, 300);
   };
 
-  optionNo = () => {
-    this.openConfirm(false);
+  const optionNo = () => {
+    openConfirm(false);
 
     // Yes, this is a workaround :(
     // Why? See this https://github.com/facebook/react-native/issues/10471
@@ -99,88 +100,92 @@ export default class App extends Component {
     }, 300);
   };
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcomeText}>
-          Welcome to React Native Simple Dialogs!
-        </Text>
-        <Text style={styles.exampleText}>Examples</Text>
-        <Text style={styles.instructionsText}>
-          To get started, touch on the buttons
-        </Text>
+  return (
+    <View style={styles.container}>
+      <Text style={styles.welcomeText}>
+        Welcome to React Native Simple Dialogs!
+      </Text>
+      <Text style={styles.exampleText}>Examples</Text>
+      <Text style={styles.instructionsText}>
+        To get started, touch on the buttons
+      </Text>
 
-        <Button onPress={() => this.openDialog(true)} title="Custom Dialog" />
+      <Button onPress={() => openDialog(true)} title="Custom Dialog" />
 
-        <View style={{height: 40}} />
+      <View style={{height: 40}} />
 
-        <Button onPress={() => this.openConfirm(true)} title="Confirm Dialog" />
+      <Button onPress={() => openConfirm(true)} title="Confirm Dialog" />
 
-        <View style={{height: 40}} />
+      <View style={{height: 40}} />
 
-        <Button onPress={this.openProgress} title="Progress Dialog" />
+      <Button onPress={openProgress} title="Progress Dialog" />
 
-        <Dialog
-          title="Custom Dialog"
-          animationType="fade"
-          contentStyle={{
-            alignItems: 'center',
-            justifyContent: 'center',
+      <Dialog
+        supportedOrientations={['landscape', 'landscape']}
+        safeAreaInsets={insets}
+        title="Custom Dialog"
+        animationType="fade"
+        contentStyle={{
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+        onTouchOutside={() => openDialog(false)}
+        visible={showDialog}>
+        <Image
+          source={{
+            uri: 'https://facebook.github.io/react-native/img/header_logo.png',
           }}
-          onTouchOutside={() => this.openDialog(false)}
-          visible={this.state.showDialog}>
-          <Image
-            source={{
-              uri: 'https://facebook.github.io/react-native/img/header_logo.png',
-            }}
-            style={{
-              width: 99,
-              height: 87,
-              backgroundColor: 'black',
-              marginTop: 10,
-              resizeMode: 'contain',
-            }}
-          />
-          <Text style={{marginVertical: 30, color: 'black'}}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </Text>
-          <Button onPress={() => this.openDialog(false)} title="CLOSE" />
-        </Dialog>
-
-        <ConfirmDialog
-          title="Confirm Dialog"
-          message="Are you sure about that?"
-          onTouchOutside={() => this.openConfirm(false)}
-          visible={this.state.showConfirm}
-          negativeButton={{
-            title: 'NO',
-            onPress: this.optionNo,
-            disabled: false,
-            titleStyle: {
-              color: 'blue',
-              colorDisabled: 'aqua',
-            },
-            style: {
-              backgroundColor: 'transparent',
-              backgroundColorDisabled: 'transparent',
-            },
-          }}
-          positiveButton={{
-            title: 'YES',
-            onPress: this.optionYes,
+          style={{
+            width: 99,
+            height: 87,
+            backgroundColor: 'black',
+            marginTop: 10,
+            resizeMode: 'contain',
           }}
         />
+        <Text style={{marginVertical: 30, color: 'black'}}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </Text>
+        <Button onPress={() => openDialog(false)} title="CLOSE" />
+      </Dialog>
 
-        <ProgressDialog
-          title="Progress Dialog"
-          activityIndicatorColor="blue"
-          activityIndicatorSize="large"
-          animationType="slide"
-          message="Please, wait..."
-          visible={this.state.showProgress}
-        />
-      </View>
-    );
-  }
+      <ConfirmDialog
+        supportedOrientations={['landscape', 'landscape']}
+        safeAreaInsets={insets}
+        title="Confirm Dialog"
+        message="Are you sure about that?"
+        onTouchOutside={() => openConfirm(false)}
+        visible={showConfirm}
+        negativeButton={{
+          title: 'NO',
+          onPress: optionNo,
+          disabled: false,
+          titleStyle: {
+            color: 'blue',
+            colorDisabled: 'aqua',
+          },
+          style: {
+            backgroundColor: 'transparent',
+            backgroundColorDisabled: 'transparent',
+          },
+        }}
+        positiveButton={{
+          title: 'YES',
+          onPress: optionYes,
+        }}
+      />
+
+      <ProgressDialog
+        supportedOrientations={['landscape', 'landscape']}
+        safeAreaInsets={insets}
+        title="Progress Dialog"
+        activityIndicatorColor="blue"
+        activityIndicatorSize="large"
+        animationType="slide"
+        message="Please, wait..."
+        visible={showProgress}
+      />
+    </View>
+  );
 }

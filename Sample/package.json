@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "react": "18.2.0",
-    "react-native": "0.71.6",
+    "react-native": "0.71.19",
+    "react-native-safe-area-context": "^5.0.0",
     "react-native-simple-dialogs": "file:../"
   },
   "devDependencies": {
