@@ -141,12 +141,11 @@ const getButtonTextStyle = (
   buttonProps: ConfirmDialogButtonPropsType,
   positive?: boolean,
 ): StyleProp<TextStyle> => {
-  const {style} = buttonProps;
+  const {titleStyle} = buttonProps;
 
   const color = getButtonTextColor(buttonProps);
 
-  const flattenStyle = StyleSheet.flatten(style);
-  delete flattenStyle?.backgroundColorDisabled;
+  const flattenStyle = StyleSheet.flatten(titleStyle);
 
   return Platform.select({
     ios: [
@@ -156,7 +155,6 @@ const getButtonTextStyle = (
         color,
         fontWeight: positive ? 'bold' : 'normal',
       },
-      {color},
       flattenStyle,
     ],
     android: [
@@ -170,7 +168,6 @@ const getButtonTextStyle = (
         fontWeight: 'bold',
         textTransform: 'uppercase',
       },
-      {color},
       flattenStyle,
     ],
   });

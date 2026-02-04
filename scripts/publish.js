@@ -18,7 +18,8 @@ fs.writeFileSync(packageJsonPath, content, {
 });
 
 try {
-  child_process.execSync('npm publish');
+  const args = process.argv.slice(2).join(' ');
+  child_process.execSync(`npm publish ${args}`);
 } catch (err) {
   console.error(err);
 }
