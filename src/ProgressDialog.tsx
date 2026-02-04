@@ -35,10 +35,15 @@ import {
 import Dialog, {DialogPropsType, dialogDefaultProps} from './Dialog';
 
 export type ProgressDialogPropsType = DialogPropsType & {
+  /** Message shown in the progress dialog */
   message?: React.ReactNode;
+  /** Custom text style for message */
   messageStyle?: StyleProp<TextStyle>;
+  /** The foreground color of the spinner */
   activityIndicatorColor?: ActivityIndicatorProps['color'];
+  /** Size of the indicator. Number only supported on Android */
   activityIndicatorSize?: ActivityIndicatorProps['size'];
+  /** Custom style for the activity indicator */
   activityIndicatorStyle?: ActivityIndicatorProps['style'];
 };
 

@@ -55,36 +55,67 @@ export interface EdgeInsets {
 }
 
 export type DialogPropsType = {
+  /** Used to locate this view in end-to-end tests */
   testID?: string;
+  /** Dialog content */
   children?: React.ReactNode | React.ReactNode[];
+  /** Custom view style for dialog content wrapper */
   contentStyle?: StyleProp<ViewStyle>;
+  /** Modal's title */
   title?: string;
+  /** Custom text style object for modal's title */
   titleStyle?: StyleProp<TextStyle>;
+  /** Modal button component */
   buttons?: React.ReactNode | React.ReactNode[];
+  /** Custom view style for dialog button wrapper */
   buttonsStyle?: StyleProp<ViewStyle>;
+  /** Custom view style for dialog box */
   dialogStyle?: StyleProp<ViewStyle>;
+  /** Show the modal? @default false */
   visible: boolean;
+  /** Controls how the modal animates @default 'none' */
   animationType?: ModalProps['animationType'];
+  /** Callback that's called when users taps the hardware back button on Android */
   onRequestClose?: () => void;
+  /** Callback that's called once the modal has been shown */
   onShow?: () => void;
+  /** Callback that's called when the orientation change while the modal is being displayed on iOS */
   onOrientationChange?: () => void;
+  /** Callback that's called when users tap outside the shown modal */
   onTouchOutside?: () => void;
+  /** Custom view style for dialog overlay */
   overlayStyle?: StyleProp<ViewStyle>;
+  /** Allowed orientation while modals is being shown @default 'portrait' */
   supportedOrientations?: ModalProps['supportedOrientations'];
+  /** Determines whether your modal should go under the system statusbar */
   statusBarTranslucent?: ModalProps['statusBarTranslucent'];
+  /** When true, indicates that the view is an accessibility element */
   accessible?: ModalProps['accessible'];
+  /** Accessibility actions allow an assistive technology to programmatically invoke the actions of a component */
   accessibilityActions?: ModalProps['accessibilityActions'];
+  /** Overrides the text that's read by the screen reader when the user interacts with the element */
   accessibilityLabel?: ModalProps['accessibilityLabel'];
+  /** Indicates to accessibility services what kind of component this is */
   accessibilityRole?: ModalProps['accessibilityRole'];
+  /** Describes the current state of a component to the user of an assistive technology */
   accessibilityState?: ModalProps['accessibilityState'];
+  /** An accessibility hint helps users understand what will happen when they perform an action on the accessibility element */
   accessibilityHint?: ModalProps['accessibilityHint'];
+  /** Represents the current value of a component */
   accessibilityValue?: ModalProps['accessibilityValue'];
+  /** When accessible is true, the system will invoke this callback when the user performs the actions */
   onAccessibilityAction?: ModalProps['onAccessibilityAction'];
+  /** Controls how view is important for accessibility */
   importantForAccessibility?: ModalProps['importantForAccessibility'];
+  /** Role communicates the purpose of a component to the user of an assistive technology */
   role?: ModalProps['role'];
+  /** Determines whether the keyboard gets dismissed in response to a drag */
   keyboardDismissMode?: ScrollViewProps['keyboardDismissMode'];
+  /** Determines when the keyboard should stay visible after a tap */
   keyboardShouldPersistTaps?: ScrollViewProps['keyboardShouldPersistTaps'];
+  /** This property specifies how the safe area insets are used to modify the content area of the scroll view */
   contentInsetAdjustmentBehavior?: ScrollViewProps['contentInsetAdjustmentBehavior'];
+  /** Insets to apply to the dialog to avoid notches and other screen insets. Can be used with react-native-safe-area-context */
   safeAreaInsets?: EdgeInsets;
 };
 

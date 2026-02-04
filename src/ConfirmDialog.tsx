@@ -42,14 +42,19 @@ const DEFAULT_COLOR_BUTTON = '#0000FF99';
 const DEFAULT_BACKGROUND_COLOR_BUTTON = 'transparent';
 
 export type ConfirmDialogButtonPropsType = {
+  /** Button title */
   title: string;
+  /** Callback function when button is pressed */
   onPress: () => void;
+  /** Whether the button is disabled */
   disabled?: boolean;
+  /** Custom text style for button title */
   titleStyle?: StyleProp<
     TextStyle & {
       colorDisabled?: TextStyle['color'];
     }
   >;
+  /** Custom view style for button */
   style?: StyleProp<
     ViewStyle & {
       backgroundColorDisabled?: ViewStyle['backgroundColor'];
@@ -58,9 +63,13 @@ export type ConfirmDialogButtonPropsType = {
 };
 
 export type ConfirmDialogPropsType = DialogPropsType & {
+  /** Message shown in the confirm dialog */
   message?: string;
+  /** Custom text style for message */
   messageStyle?: StyleProp<TextStyle>;
+  /** Button element object to describe the negative button */
   negativeButton?: ConfirmDialogButtonPropsType;
+  /** Button element object to describe the positive button */
   positiveButton: ConfirmDialogButtonPropsType;
 };
 
