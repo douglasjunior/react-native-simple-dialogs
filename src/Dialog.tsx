@@ -30,6 +30,7 @@ import {
   Text,
   Platform,
   ScrollView,
+  KeyboardAvoidingView,
   StyleProp,
   ViewStyle,
   TextStyle,
@@ -270,7 +271,8 @@ const Dialog = (props: DialogPropsType): JSX.Element => {
         keyboardDismissMode={keyboardDismissMode}
         keyboardShouldPersistTaps={keyboardShouldPersistTaps}
         contentInsetAdjustmentBehavior={contentInsetAdjustmentBehavior}>
-        <View
+        <KeyboardAvoidingView
+          behavior="height"
           style={[
             {
               flex: 1,
@@ -308,7 +310,7 @@ const Dialog = (props: DialogPropsType): JSX.Element => {
           </View>
 
           {renderOutsideTouchable()}
-        </View>
+        </KeyboardAvoidingView>
       </ScrollView>
     </Modal>
   );
