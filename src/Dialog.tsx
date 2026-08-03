@@ -30,6 +30,7 @@ import {
   Text,
   Platform,
   ScrollView,
+  KeyboardAvoidingView,
   StyleProp,
   ViewStyle,
   TextStyle,
@@ -44,6 +45,7 @@ const DEFAULT_OVERLAY_PADDING = 24;
 export const dialogDefaultProps: DialogPropsType = {
   visible: false,
   onRequestClose: () => null,
+  avoidKeyboard: false,
   contentInsetAdjustmentBehavior: 'never',
 };
 
@@ -109,6 +111,8 @@ export type DialogPropsType = {
   importantForAccessibility?: ModalProps['importantForAccessibility'];
   /** Role communicates the purpose of a component to the user of an assistive technology */
   role?: ModalProps['role'];
+  /** Specifies whether the dialog moves out of the way of the keyboard. @default false */
+  avoidKeyboard?: boolean;
   /** Determines whether the keyboard gets dismissed in response to a drag */
   keyboardDismissMode?: ScrollViewProps['keyboardDismissMode'];
   /** Determines when the keyboard should stay visible after a tap */
@@ -118,6 +122,12 @@ export type DialogPropsType = {
   /** Insets to apply to the dialog to avoid notches and other screen insets. Can be used with react-native-safe-area-context */
   safeAreaInsets?: EdgeInsets;
 };
+
+type OverlayViewPropsType = {
+  avoidKeyboard: boolean;
+  style: React.CSSProperties;
+  children: React.ReactNode;
+}
 
 const applySafeAreaInset = (inset?: number): number => {
   return typeof inset === 'number'
@@ -154,6 +164,7 @@ const Dialog = (props: DialogPropsType): JSX.Element => {
     overlayStyle,
     supportedOrientations,
     statusBarTranslucent,
+    avoidKeyboard,
     keyboardDismissMode,
     keyboardShouldPersistTaps,
     contentInsetAdjustmentBehavior,
@@ -235,6 +246,24 @@ const Dialog = (props: DialogPropsType): JSX.Element => {
     );
   };
 
+  const OverlayView =
+    ({avoidKeyboard, style, children}: OverlayViewPropsType): JSX.Element => {
+
+    if (avoidKeyboard) {
+      return (
+        <KeyboardAvoidingView behavior="height" style={style}>
+          {children}
+        </KeyboardAvoidingView>
+      );
+    } else {
+      return (
+        <View style={style}>
+          {children}
+        </View>
+      );
+    }
+  };
+
   const dialogBackgroundColor = OS === 'ios' ? '#e8e8e8' : '#ffffff';
   const dialogBorderRadius = OS === 'ios' ? 5 : 1;
 
@@ -270,7 +299,8 @@ const Dialog = (props: DialogPropsType): JSX.Element => {
         keyboardDismissMode={keyboardDismissMode}
         keyboardShouldPersistTaps={keyboardShouldPersistTaps}
         contentInsetAdjustmentBehavior={contentInsetAdjustmentBehavior}>
-        <View
+        <OverlayView
+          avoidKeyboard={avoidKeyboard}
           style={[
             {
               flex: 1,
@@ -308,7 +338,7 @@ const Dialog = (props: DialogPropsType): JSX.Element => {
           </View>
 
           {renderOutsideTouchable()}
-        </View>
+        </OverlayView>
       </ScrollView>
     </Modal>
   );
