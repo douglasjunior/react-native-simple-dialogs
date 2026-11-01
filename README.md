@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <b>React Native Simple Dialogs</b> provides flexible, easy-to-use dialogs (<a href="#1-custom-dialog-dialog">Custom</a>, <a href="#2-confirm-dialog-confirmdialog">Confirm</a>, and <a href="#3-progress-dialog-progressdialog">Progress</a>) for React Native with zero native linking, complete Safe Area support, and platform-tailored aesthetics for Android and iOS.
+  <b>React Native Simple Dialogs</b> provides flexible, easy-to-use dialogs (<a href="#1-custom-dialog-dialog">Custom</a>, <a href="#2-confirm-dialog-confirmdialog">Confirm</a>, and <a href="#3-progress-dialog-progressdialog">Progress</a>) for React Native with zero native linking, Safe Area support via the safeAreaInsets prop, and platform-tailored aesthetics for Android and iOS.
 </p>
 
 <p align="center">
@@ -13,7 +13,7 @@
   <a href="https://www.npmjs.com/package/react-native-simple-dialogs"><img src="https://img.shields.io/npm/v/react-native-simple-dialogs?style=flat-square&color=3FD0FF" alt="npm version"></a>
   <a href="https://www.npmjs.com/package/react-native-simple-dialogs"><img src="https://img.shields.io/npm/dt/react-native-simple-dialogs?style=flat-square&color=FF6A8E" alt="npm downloads"></a>
   <img src="https://img.shields.io/badge/platform-Android_%7C_iOS-lightgrey?style=flat-square" alt="Platform Android and iOS">
-  <img src="https://img.shields.io/badge/React_Native->=0.44-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React Native >= 0.44">
+  <img src="https://img.shields.io/badge/React_Native-%3E%3D0.44-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React Native >= 0.44">
   <img src="https://img.shields.io/badge/TypeScript-strict-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript strict">
   <a href="https://github.com/douglasjunior/react-native-simple-dialogs/pulls"><img src="https://img.shields.io/badge/PRs-welcome-22C55E?style=flat-square" alt="PRs welcome"></a>
 </p>
@@ -57,6 +57,7 @@ export default function App() {
         message="Are you sure you want to proceed?"
         visible={visible}
         onTouchOutside={() => setVisible(false)}
+        onRequestClose={() => setVisible(false)}
         positiveButton={{
           title: 'YES',
           onPress: () => {
@@ -84,7 +85,7 @@ export default function App() {
 - 🛡️ **Safe Area Insets Support.** Accepts a `safeAreaInsets` prop compatible with [`react-native-safe-area-context`](https://github.com/AppAndFlow/react-native-safe-area-context) to cleanly avoid notches, status bars, and home indicators.
 - 👆 **Backdrop & Hardware Back Dismiss.** Effortless dismissal via `onTouchOutside` taps and native Android hardware back button events (`onRequestClose`).
 - 🎨 **Deep Styling Freedom.** Fine-grained control over title, message, dialog card, buttons container, and backdrop overlay styles.
-- ⌨️ **Keyboard Aware.** Includes `keyboardDismissMode` and `keyboardShouldPersistTaps` props for interactive dialogs containing form inputs.
+- ⌨️ **Keyboard-Friendly Scrolling.** Forwards `keyboardDismissMode` and `keyboardShouldPersistTaps` to the dialog's `ScrollView`, for dialogs with form inputs.
 - 📘 **First-Class TypeScript.** Bundled with strict TypeScript definitions and IntelliSense documentation for all props.
 
 ---
@@ -129,7 +130,7 @@ npm install --save react-native-simple-dialogs
 
 ---
 
-## 🛠️ Usage & Examples
+## 🛠 Usage & Examples
 
 ### 1. Custom Dialog (`Dialog`)
 
@@ -342,7 +343,7 @@ export function SafeAreaDialogExample() {
 }
 ```
 
-See the complete runnable implementation in the [Sample project](https://github.com/douglasjunior/react-native-simple-dialogs/blob/master/Sample/src/App.js).
+See the complete runnable implementation in the [Sample project](https://github.com/douglasjunior/react-native-simple-dialogs/blob/master/Sample/src/App.tsx).
 
 ---
 
@@ -359,6 +360,7 @@ The base dialog component upon which `ConfirmDialog` and `ProgressDialog` are bu
 | `animationType` | `'none' \| 'slide' \| 'fade'` | `'none'` | Controls how the modal transition animates. |
 | `onShow` | `() => void` | `undefined` | Callback invoked once the modal is fully displayed. |
 | `onTouchOutside` | `() => void` | `undefined` | Callback invoked when the user taps the overlay outside the dialog box. |
+| `children` | `React.ReactNode` | `undefined` | Custom content elements rendered inside the dialog body. |
 | `title` | `string` | `undefined` | Modal title text displayed at the top. |
 | `titleStyle` | `StyleProp<TextStyle>` | `undefined` | Custom style applied to the title text. |
 | `dialogStyle` | `StyleProp<ViewStyle>` | `undefined` | Custom style applied to the dialog card container. |
@@ -376,12 +378,13 @@ The base dialog component upon which `ConfirmDialog` and `ProgressDialog` are bu
 | `testID` | `string` | `undefined` | Test identifier used to locate the dialog in end-to-end testing suites. |
 | `accessible` | `boolean` | `undefined` | Indicates whether the dialog view is an accessibility element. |
 | `accessibilityLabel` | `string` | `undefined` | Overrides the text read by screen readers. |
+| accessibility* / `role` | `ModalProps` | `undefined` | Additional accessibility props (`accessibilityActions`, `accessibilityRole`, `accessibilityState`, `accessibilityHint`, `accessibilityValue`, `onAccessibilityAction`, `importantForAccessibility`, `role`) forwarded directly to `Modal`. |
 
 ---
 
 ### `<ConfirmDialog>` Props
 
-Inherits all props from [`<Dialog>`](#dialog-props), plus:
+Inherits all props from [`<Dialog>`](#dialog-props) except `buttons` (which `ConfirmDialog` renders itself from `positiveButton` and `negativeButton`), plus:
 
 | Prop | Type | Default | Description |
 |:---|:---|:---|:---|
@@ -433,7 +436,7 @@ interface EdgeInsets {
 
 ## 📱 Platform Notes
 
-- **Android Hardware Back Button:** Always pass `onRequestClose` or `onTouchOutside` so Android users can close the dialog using the system back button.
+- **Android Hardware Back Button:** Always pass `onRequestClose`; its default is a no-op, so the back button does nothing otherwise. `onTouchOutside` only handles taps on the backdrop.
 - **Translucent Status Bar (Android):** When your application uses a translucent status bar, supply `statusBarTranslucent={true}` to ensure the overlay backdrop dims the entire screen seamlessly.
 - **Orientation Changes (iOS):** When supporting multiple device orientations on iOS, configure `supportedOrientations={['portrait', 'landscape']}` and optionally attach an `onOrientationChange` callback.
 - **Expo Friendly:** Zero native code means `react-native-simple-dialogs` works out-of-the-box in Expo Go and EAS Build without custom native dev clients.
@@ -445,7 +448,7 @@ interface EdgeInsets {
 Bug fixes, improvements, and documentation suggestions are welcome!
 
 1. Fork the repository and create your topic branch (`git checkout -b feature/my-feature`).
-2. Verify code quality with linting and TypeScript checks.
+2. Verify code quality with TypeScript build and lint checks (`yarn build` and `npx eslint src`).
 3. Commit your changes using [Conventional Commits](https://www.conventionalcommits.org/).
 4. Push to your branch and open a descriptive Pull Request.
 
