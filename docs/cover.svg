@@ -159,11 +159,11 @@
     <circle cx="610" cy="100" r="1.8" opacity="0.7"/>
     <circle cx="640" cy="580" r="1.4" opacity="0.5"/>
     <circle cx="1250" cy="30" r="2.0" opacity="0.8"/>
-    <circle cx="1140" cy="570" r="1.3" opacity="0.4"/>
+    <circle cx="1255" cy="600" r="1.3" opacity="0.4"/>
   </g>
   <g fill="#3fd0ff">
     <circle cx="100" cy="330" r="1.2" opacity="0.5"/>
-    <circle cx="590" cy="310" r="1.6" opacity="0.6"/>
+    <circle cx="600" cy="240" r="1.6" opacity="0.6"/>
     <circle cx="730" cy="70" r="1.2" opacity="0.4"/>
     <circle cx="1230" cy="390" r="1.5" opacity="0.7"/>
   </g>

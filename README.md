@@ -152,6 +152,7 @@ export function CustomDialogExample() {
         visible={dialogVisible}
         title="Custom Dialog"
         onTouchOutside={() => setDialogVisible(false)}
+        onRequestClose={() => setDialogVisible(false)}
         animationType="fade"
         buttons={
           <View style={styles.buttonRow}>
@@ -208,6 +209,7 @@ export function ConfirmMessageExample() {
         message="Are you sure you want to delete this record? This action cannot be undone."
         visible={dialogVisible}
         onTouchOutside={() => setDialogVisible(false)}
+        onRequestClose={() => setDialogVisible(false)}
         positiveButton={{
           title: 'YES',
           onPress: () => {
@@ -246,6 +248,7 @@ export function ConfirmCustomContentExample() {
         title="Quick Feedback"
         visible={dialogVisible}
         onTouchOutside={() => setDialogVisible(false)}
+        onRequestClose={() => setDialogVisible(false)}
         positiveButton={{
           title: 'SUBMIT',
           onPress: () => {
@@ -334,6 +337,7 @@ export function SafeAreaDialogExample() {
       title="Safe Area Aware"
       safeAreaInsets={insets}
       onTouchOutside={() => setVisible(false)}
+      onRequestClose={() => setVisible(false)}
     >
       <View>
         <Text>This dialog respects device insets and notches cleanly.</Text>
