@@ -1,0 +1,376 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640">
+  <defs>
+    <!-- Background Cosmic Gradients -->
+    <radialGradient id="nebula-violet" cx="20%" cy="18%" r="65%">
+      <stop offset="0%" stop-color="#5842d6" stop-opacity="0.38"/>
+      <stop offset="100%" stop-color="#04050d" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="nebula-cyan" cx="82%" cy="25%" r="60%">
+      <stop offset="0%" stop-color="#1882be" stop-opacity="0.34"/>
+      <stop offset="100%" stop-color="#04050d" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="nebula-pink" cx="45%" cy="92%" r="55%">
+      <stop offset="0%" stop-color="#be3c78" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#04050d" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cosmic-stripe" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8b7bff"/>
+      <stop offset="35%" stop-color="#3fd0ff"/>
+      <stop offset="70%" stop-color="#ff6a8e"/>
+      <stop offset="100%" stop-color="#ffd56a"/>
+    </linearGradient>
+    <linearGradient id="title-grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="40%" stop-color="#e9ebfa"/>
+      <stop offset="100%" stop-color="#3fd0ff"/>
+    </linearGradient>
+    <linearGradient id="phone-border-android" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8b7bff" stop-opacity="0.65"/>
+      <stop offset="50%" stop-color="#3fd0ff" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#ff6a8e" stop-opacity="0.55"/>
+    </linearGradient>
+    <linearGradient id="phone-border-ios" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3fd0ff" stop-opacity="0.65"/>
+      <stop offset="50%" stop-color="#8b7bff" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#ffd56a" stop-opacity="0.55"/>
+    </linearGradient>
+    <linearGradient id="spinner-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3fd0ff"/>
+      <stop offset="100%" stop-color="#8b7bff"/>
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="glow-violet" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="shadow-dialog" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.65"/>
+    </filter>
+
+    <!-- Device Screen Clips -->
+    <clipPath id="screen-clip-android">
+      <rect x="681" y="96" width="248" height="468" rx="18"/>
+    </clipPath>
+    <clipPath id="screen-clip-ios">
+      <rect x="971" y="76" width="248" height="488" rx="30"/>
+    </clipPath>
+
+    <style>
+      <![CDATA[
+      @media (prefers-reduced-motion: no-preference) {
+        .anim-star-twinkle {
+          animation: twinkle 4s ease-in-out infinite;
+        }
+        .anim-spin {
+          animation: spinIndicator 1.4s linear infinite;
+          transform-origin: 1024px 310px;
+        }
+        .anim-pulse-btn {
+          animation: pulseRipple 3.5s ease-out infinite;
+          transform-origin: 872px 376px;
+        }
+        .anim-float-phone-left {
+          animation: floatPhoneL 6s ease-in-out infinite;
+        }
+        .anim-float-phone-right {
+          animation: floatPhoneR 6s ease-in-out infinite 0.7s;
+        }
+        .anim-badge-float {
+          animation: badgeFloat 5s ease-in-out infinite 0.3s;
+        }
+      }
+
+      @keyframes twinkle {
+        0%, 100% { opacity: 0.25; transform: scale(0.9); }
+        50% { opacity: 0.85; transform: scale(1.15); }
+      }
+
+      @keyframes spinIndicator {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+
+      @keyframes pulseRipple {
+        0%, 45% { opacity: 0; transform: scale(0.3); }
+        55% { opacity: 0.55; }
+        70%, 100% { opacity: 0; transform: scale(1.8); }
+      }
+
+      @keyframes floatPhoneL {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-6px); }
+      }
+
+      @keyframes floatPhoneR {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-7px); }
+      }
+
+      @keyframes badgeFloat {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-4px); }
+      }
+      ]]>
+    </style>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1280" height="640" rx="20" fill="#04050d"/>
+  <rect width="1280" height="640" rx="20" fill="url(#nebula-violet)"/>
+  <rect width="1280" height="640" rx="20" fill="url(#nebula-cyan)"/>
+  <rect width="1280" height="640" rx="20" fill="url(#nebula-pink)"/>
+
+  <!-- Subtle Coordinate Grid -->
+  <g opacity="0.10">
+    <line x1="80" y1="0" x2="80" y2="640" stroke="#8b7bff" stroke-width="1"/>
+    <line x1="200" y1="0" x2="200" y2="640" stroke="#8b7bff" stroke-width="1"/>
+    <line x1="360" y1="0" x2="360" y2="640" stroke="#8b7bff" stroke-width="1"/>
+    <line x1="520" y1="0" x2="520" y2="640" stroke="#8b7bff" stroke-width="1"/>
+    <line x1="680" y1="0" x2="680" y2="640" stroke="#8b7bff" stroke-width="1"/>
+    <line x1="840" y1="0" x2="840" y2="640" stroke="#8b7bff" stroke-width="1"/>
+    <line x1="1000" y1="0" x2="1000" y2="640" stroke="#8b7bff" stroke-width="1"/>
+    <line x1="1160" y1="0" x2="1160" y2="640" stroke="#8b7bff" stroke-width="1"/>
+    <line x1="0" y1="80" x2="1280" y2="80" stroke="#8b7bff" stroke-width="1"/>
+    <line x1="0" y1="200" x2="1280" y2="200" stroke="#8b7bff" stroke-width="1"/>
+    <line x1="0" y1="320" x2="1280" y2="320" stroke="#8b7bff" stroke-width="1"/>
+    <line x1="0" y1="440" x2="1280" y2="440" stroke="#8b7bff" stroke-width="1"/>
+    <line x1="0" y1="560" x2="1280" y2="560" stroke="#8b7bff" stroke-width="1"/>
+  </g>
+
+  <!-- Stars -->
+  <g class="anim-star-twinkle" fill="#ffd56a">
+    <circle cx="130" cy="80" r="1.5" opacity="0.6"/>
+    <circle cx="270" cy="470" r="1.2" opacity="0.4"/>
+    <circle cx="610" cy="100" r="1.8" opacity="0.7"/>
+    <circle cx="680" cy="530" r="1.4" opacity="0.5"/>
+    <circle cx="1210" cy="110" r="2.0" opacity="0.8"/>
+    <circle cx="1140" cy="570" r="1.3" opacity="0.4"/>
+  </g>
+  <g fill="#3fd0ff">
+    <circle cx="100" cy="330" r="1.2" opacity="0.5"/>
+    <circle cx="550" cy="380" r="1.6" opacity="0.6"/>
+    <circle cx="730" cy="70" r="1.2" opacity="0.4"/>
+    <circle cx="1230" cy="390" r="1.5" opacity="0.7"/>
+  </g>
+
+  <!-- Outer Border Frame -->
+  <rect x="1" y="1" width="1278" height="638" rx="19" fill="none" stroke="rgba(150, 160, 255, 0.16)" stroke-width="2"/>
+  <!-- Cosmic Gradient Stripe at Bottom -->
+  <rect x="0" y="635" width="1280" height="5" fill="url(#cosmic-stripe)"/>
+
+  <!-- ==================== LEFT COLUMN: CONTENT ==================== -->
+  <g transform="translate(80, 0)">
+    <!-- Pill: Category / Identity -->
+    <g transform="translate(0, 84)">
+      <rect width="280" height="32" rx="16" fill="rgba(139, 123, 255, 0.12)" stroke="#8b7bff" stroke-width="1.2"/>
+      <circle cx="18" cy="16" r="4" fill="#3fd0ff"/>
+      <text x="32" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="700" fill="#e9ebfa" letter-spacing="1">REACT NATIVE · MODAL DIALOGS</text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="0" y="174" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="800" fill="#ffffff" letter-spacing="-0.5">
+      react-native-
+    </text>
+    <text x="0" y="228" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="800" fill="url(#title-grad)" letter-spacing="-0.5">
+      simple-dialogs
+    </text>
+
+    <!-- Subtitle / Tagline -->
+    <text x="0" y="274" font-family="system-ui, -apple-system, sans-serif" font-size="16.5" fill="#9ba1c7" font-weight="400">
+      Cross-platform customizable dialogs for React Native based on Modal.
+    </text>
+    <text x="0" y="300" font-family="system-ui, -apple-system, sans-serif" font-size="16.5" fill="#838ab2" font-weight="400">
+      Tailored <tspan fill="#3fd0ff" font-weight="600">Material Design</tspan> &amp; <tspan fill="#8b7bff" font-weight="600">iOS</tspan> aesthetics with zero native code linking.
+    </text>
+
+    <!-- Feature Cards -->
+    <g transform="translate(0, 334)">
+      <!-- Item 1: 3 Dialog Types -->
+      <g transform="translate(0, 0)">
+        <rect width="540" height="52" rx="12" fill="rgba(13, 15, 36, 0.65)" stroke="rgba(150, 160, 255, 0.14)" stroke-width="1"/>
+        <circle cx="28" cy="26" r="11" fill="rgba(63, 208, 255, 0.15)"/>
+        <text x="28" y="30" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="800" fill="#3fd0ff" text-anchor="middle">⚛</text>
+        <text x="54" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="14.5" font-weight="700" fill="#e9ebfa">3 Versatile Dialog Components</text>
+        <text x="54" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9ba1c7">Custom Dialog, Confirm prompts, and Progress Dialog with spinner</text>
+      </g>
+
+      <!-- Item 2: Cross Platform -->
+      <g transform="translate(0, 64)">
+        <rect width="540" height="52" rx="12" fill="rgba(13, 15, 36, 0.65)" stroke="rgba(150, 160, 255, 0.14)" stroke-width="1"/>
+        <circle cx="28" cy="26" r="11" fill="rgba(139, 123, 255, 0.15)"/>
+        <text x="28" y="30" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="800" fill="#8b7bff" text-anchor="middle">📱</text>
+        <text x="54" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="14.5" font-weight="700" fill="#e9ebfa">Native Android &amp; iOS Aesthetics</text>
+        <text x="54" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9ba1c7">Material action buttons and elevation on Android; Cupertino feel on iOS</text>
+      </g>
+
+      <!-- Item 3: Safe Area & Dismiss -->
+      <g transform="translate(0, 128)">
+        <rect width="540" height="52" rx="12" fill="rgba(13, 15, 36, 0.65)" stroke="rgba(150, 160, 255, 0.14)" stroke-width="1"/>
+        <circle cx="28" cy="26" r="11" fill="rgba(255, 106, 142, 0.15)"/>
+        <text x="28" y="30" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="800" fill="#ff6a8e" text-anchor="middle">🛡</text>
+        <text x="54" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="14.5" font-weight="700" fill="#e9ebfa">Safe Area Insets &amp; Hardware Back</text>
+        <text x="54" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9ba1c7">Automatic notch avoidance and seamless Android hardware back handling</text>
+      </g>
+    </g>
+
+    <!-- Bottom Metadata Chips -->
+    <g transform="translate(0, 542)">
+      <rect width="96" height="26" rx="6" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.12)"/>
+      <text x="48" y="17" font-family="ui-monospace, monospace" font-size="11.5" fill="#9ba1c7" text-anchor="middle">MIT License</text>
+
+      <rect x="106" width="132" height="26" rx="6" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.12)"/>
+      <text x="172" y="17" font-family="ui-monospace, monospace" font-size="11.5" fill="#9ba1c7" text-anchor="middle">TypeScript Ready</text>
+
+      <rect x="248" width="138" height="26" rx="6" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.12)"/>
+      <text x="317" y="17" font-family="ui-monospace, monospace" font-size="11.5" fill="#9ba1c7" text-anchor="middle">Zero Native Setup</text>
+
+      <rect x="396" width="144" height="26" rx="6" fill="rgba(63, 208, 255, 0.1)" stroke="rgba(63, 208, 255, 0.3)"/>
+      <text x="468" y="17" font-family="ui-monospace, monospace" font-size="11.5" fill="#3fd0ff" text-anchor="middle">Safe Area Support</text>
+    </g>
+  </g>
+
+  <!-- ==================== RIGHT COLUMN: DUAL-DEVICE SHOWCASE ==================== -->
+
+  <!-- Top Floating Badge -->
+  <g class="anim-badge-float" transform="translate(895, 26)">
+    <rect width="186" height="30" rx="15" fill="rgba(13, 15, 36, 0.88)" stroke="#ffd56a" stroke-width="1.2" filter="url(#glow-cyan)"/>
+    <circle cx="16" cy="15" r="4" fill="#ffd56a"/>
+    <text x="28" y="20" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="700" fill="#ffd56a" letter-spacing="0.5">⚛ ZERO NATIVE LINKING</text>
+  </g>
+
+  <!-- DEVICE 1: ANDROID PHONE (LEFT) -->
+  <g class="anim-float-phone-left" transform="translate(675, 78)">
+    <!-- Chassis Shadow / Glow -->
+    <rect x="0" y="0" width="254" height="476" rx="26" fill="none" stroke="rgba(139, 123, 255, 0.25)" stroke-width="12" opacity="0.3" filter="url(#glow-violet)"/>
+
+    <!-- Outer Phone Shell -->
+    <rect x="0" y="0" width="254" height="476" rx="26" fill="#0d0f27" stroke="url(#phone-border-android)" stroke-width="2.2"/>
+
+    <!-- Screen Area (Clipped) -->
+    <g clip-path="url(#screen-clip-android)">
+      <!-- App Background -->
+      <rect x="681" y="96" width="248" height="468" fill="#090a1c"/>
+
+      <!-- Android Top Status Bar & Camera -->
+      <rect x="681" y="96" width="248" height="28" fill="rgba(20, 22, 50, 0.6)"/>
+      <circle cx="805" cy="110" r="4.5" fill="#04050d"/>
+      <text x="702" y="114" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" fill="#9ba1c7" font-weight="600">9:41</text>
+      <text x="912" y="114" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" fill="#9ba1c7" text-anchor="end">100%</text>
+
+      <!-- App Bar -->
+      <rect x="681" y="124" width="248" height="40" fill="#141738"/>
+      <text x="702" y="149" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Settings</text>
+      <circle cx="905" cy="144" r="2" fill="#9ba1c7"/>
+      <circle cx="911" cy="144" r="2" fill="#9ba1c7"/>
+      <circle cx="917" cy="144" r="2" fill="#9ba1c7"/>
+
+      <!-- Mock App Content Rows -->
+      <rect x="697" y="178" width="216" height="30" rx="6" fill="#151834" opacity="0.7"/>
+      <rect x="710" y="188" width="80" height="10" rx="4" fill="rgba(150, 160, 255, 0.25)"/>
+      <rect x="697" y="216" width="216" height="30" rx="6" fill="#151834" opacity="0.7"/>
+      <rect x="710" y="226" width="110" height="10" rx="4" fill="rgba(150, 160, 255, 0.25)"/>
+      <rect x="697" y="254" width="216" height="30" rx="6" fill="#151834" opacity="0.7"/>
+      <rect x="710" y="264" width="95" height="10" rx="4" fill="rgba(150, 160, 255, 0.25)"/>
+
+      <!-- Dimmed Modal Backdrop -->
+      <rect x="681" y="96" width="248" height="468" fill="#04050d" opacity="0.65"/>
+
+      <!-- Material ConfirmDialog Card -->
+      <g filter="url(#shadow-dialog)">
+        <rect x="698" y="234" width="214" height="162" rx="8" fill="#1b1e3e" stroke="rgba(139, 123, 255, 0.3)" stroke-width="1.2"/>
+
+        <!-- Title -->
+        <text x="716" y="264" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Delete Account?</text>
+
+        <!-- Message Body -->
+        <text x="716" y="292" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" fill="#9ba1c7">This will permanently delete</text>
+        <text x="716" y="308" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" fill="#9ba1c7">your data and preferences.</text>
+
+        <!-- Material Buttons (Right-Aligned, Uppercase) -->
+        <text x="822" y="368" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="700" fill="#8b7bff" text-anchor="end" letter-spacing="0.5">CANCEL</text>
+        <text x="896" y="368" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="700" fill="#ff6a8e" text-anchor="end" letter-spacing="0.5">DELETE</text>
+
+        <!-- Tap Ripple Pulse on Positive Button -->
+        <circle class="anim-pulse-btn" cx="872" cy="364" r="14" fill="#ff6a8e" opacity="0"/>
+      </g>
+    </g>
+
+    <!-- Platform Label Pill -->
+    <g transform="translate(54, 436)">
+      <rect width="146" height="24" rx="12" fill="rgba(13, 15, 36, 0.9)" stroke="#8b7bff" stroke-width="1"/>
+      <circle cx="14" cy="12" r="3.5" fill="#8b7bff"/>
+      <text x="24" y="16" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="700" fill="#e9ebfa" letter-spacing="0.4">Android · ConfirmDialog</text>
+    </g>
+  </g>
+
+  <!-- DEVICE 2: IOS PHONE (RIGHT) -->
+  <g class="anim-float-phone-right" transform="translate(962, 54)">
+    <!-- Chassis Shadow / Glow -->
+    <rect x="0" y="0" width="258" height="506" rx="38" fill="none" stroke="rgba(63, 208, 255, 0.25)" stroke-width="12" opacity="0.3" filter="url(#glow-cyan)"/>
+
+    <!-- Outer Phone Shell -->
+    <rect x="0" y="0" width="258" height="506" rx="38" fill="#0d0f27" stroke="url(#phone-border-ios)" stroke-width="2.2"/>
+
+    <!-- Screen Area (Clipped) -->
+    <g clip-path="url(#screen-clip-ios)">
+      <!-- App Background -->
+      <rect x="971" y="76" width="248" height="488" fill="#090a1c"/>
+
+      <!-- Dynamic Island / Speaker Notch -->
+      <rect x="1055" y="86" width="80" height="20" rx="10" fill="#04050d"/>
+      <circle cx="1070" cy="96" r="4.5" fill="#181c3e"/>
+      <circle cx="1122" cy="96" r="3.5" fill="#181c3e"/>
+
+      <!-- App Header Bar -->
+      <rect x="971" y="118" width="248" height="40" fill="#141738"/>
+      <text x="1095" y="143" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">Cloud Storage</text>
+
+      <!-- Mock App Content Rows -->
+      <rect x="987" y="172" width="216" height="32" rx="8" fill="#151834" opacity="0.7"/>
+      <rect x="1000" y="183" width="90" height="10" rx="4" fill="rgba(150, 160, 255, 0.25)"/>
+      <rect x="987" y="212" width="216" height="32" rx="8" fill="#151834" opacity="0.7"/>
+      <rect x="1000" y="223" width="120" height="10" rx="4" fill="rgba(150, 160, 255, 0.25)"/>
+      <rect x="987" y="252" width="216" height="32" rx="8" fill="#151834" opacity="0.7"/>
+      <rect x="1000" y="263" width="75" height="10" rx="4" fill="rgba(150, 160, 255, 0.25)"/>
+
+      <!-- Dimmed Modal Backdrop -->
+      <rect x="971" y="76" width="248" height="488" fill="#04050d" opacity="0.65"/>
+
+      <!-- iOS ProgressDialog Card (Cupertino Rounded) -->
+      <g filter="url(#shadow-dialog)">
+        <rect x="988" y="226" width="214" height="162" rx="18" fill="#191c3d" stroke="rgba(63, 208, 255, 0.3)" stroke-width="1.2"/>
+
+        <!-- Title (iOS Center-Aligned) -->
+        <text x="1095" y="258" font-family="system-ui, -apple-system, sans-serif" font-size="14.5" font-weight="700" fill="#ffffff" text-anchor="middle">Syncing Database</text>
+
+        <!-- Progress Spinner & Message -->
+        <g transform="translate(0, 0)">
+          <!-- Static Background Circle -->
+          <circle cx="1024" cy="308" r="14" fill="none" stroke="rgba(255, 255, 255, 0.12)" stroke-width="3.2"/>
+          <!-- Animated Spinning Arc -->
+          <circle class="anim-spin" cx="1024" cy="308" r="14" fill="none" stroke="url(#spinner-grad)" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="24 64"/>
+
+          <!-- Progress Message -->
+          <text x="1050" y="306" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#ffffff">Please, wait...</text>
+          <text x="1050" y="322" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" fill="#9ba1c7">Uploading 12 files</text>
+        </g>
+
+        <!-- iOS Bottom Divider & Cancel Action -->
+        <line x1="988" y1="344" x2="1202" y2="344" stroke="rgba(150, 160, 255, 0.18)" stroke-width="1"/>
+        <text x="1095" y="369" font-family="system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="600" fill="#3fd0ff" text-anchor="middle">Cancel</text>
+      </g>
+    </g>
+
+    <!-- Platform Label Pill -->
+    <g transform="translate(56, 464)">
+      <rect width="146" height="24" rx="12" fill="rgba(13, 15, 36, 0.9)" stroke="#3fd0ff" stroke-width="1"/>
+      <circle cx="14" cy="12" r="3.5" fill="#3fd0ff"/>
+      <text x="24" y="16" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="700" fill="#e9ebfa" letter-spacing="0.4">iOS · ProgressDialog</text>
+    </g>
+  </g>
+</svg>
